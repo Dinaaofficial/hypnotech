@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Build PC - HYPNOTECH COMPUTERS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],display:['Oswald','sans-serif']},colors:{brand:{50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#1e3a5f',600:'#162d4a',700:'#0f2038',800:'#0a1628',900:'#060d18'}}}}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+::selection{background:#1e3a5f;color:#fff}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#f1f1f1}.dark ::-webkit-scrollbar-track{background:#111}::-webkit-scrollbar-thumb{background:#1e3a5f;border-radius:3px}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(30,58,95,.4)}50%{box-shadow:0 0 0 12px rgba(30,58,95,0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.animate-slideUp{animation:slideUp .6s cubic-bezier(.16,1,.3,1) both}
+.delay-100{animation-delay:100ms}.delay-200{animation-delay:200ms}.delay-300{animation-delay:300ms}.delay-400{animation-delay:400ms}
+.grid-bg{background-image:linear-gradient(rgba(30,58,95,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(30,58,95,.03) 1px,transparent 1px);background-size:60px 60px}
+.dark .grid-bg{background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px)}
+.theme-toggle{position:relative;width:48px;height:26px;border-radius:13px;cursor:pointer;transition:background .3s}
+.theme-toggle .toggle-ball{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;transition:all .3s cubic-bezier(.68,-.55,.27,1.55)}
+.dark .theme-toggle .toggle-ball{left:25px}
+.form-section{transition:all .3s ease}
+.form-section:hover{transform:translateY(-2px)}
+.select-wrap{position:relative}
+.select-wrap::after{content:'';position:absolute;right:14px;top:50%;transform:translateY(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid #1e3a5f;pointer-events:none}
+.dark .select-wrap::after{border-top-color:#818cf8}
+.select-wrap select{appearance:none;-webkit-appearance:none;padding-right:36px}
+.form-select,.form-input,.form-textarea{width:100%;padding:12px 16px;background:#fff;border:1.5px solid #e5e5e5;border-radius:12px;font-size:14px;font-family:'Inter',sans-serif;color:#171717;transition:all .2s ease;outline:none}
+.dark .form-select,.dark .form-input,.dark .form-textarea{background:#171717;border-color:rgba(255,255,255,.12);color:#fff}
+.form-select:focus,.form-input:focus,.form-textarea:focus{border-color:#1e3a5f;box-shadow:0 0 0 3px rgba(30,58,95,.1)}
+.dark .form-select:focus,.dark .form-input:focus,.dark .form-textarea:focus{border-color:#818cf8;box-shadow:0 0 0 3px rgba(129,140,248,.15)}
+.form-textarea{resize:vertical;min-height:100px}
+.radio-card{position:relative;cursor:pointer;transition:all .2s ease}
+.radio-card input{position:absolute;opacity:0;pointer-events:none}
+.radio-card .radio-label{display:flex;align-items:center;gap:10px;padding:12px 16px;border:1.5px solid #e5e5e5;border-radius:12px;background:#fff;transition:all .2s ease;font-size:13px;font-weight:500}
+.dark .radio-card .radio-label{border-color:rgba(255,255,255,.12);background:#171717}
+.radio-card input:checked+.radio-label{border-color:#1e3a5f;background:rgba(30,58,95,.04);box-shadow:0 0 0 3px rgba(30,58,95,.08)}
+.dark .radio-card input:checked+.radio-label{border-color:#818cf8;background:rgba(129,140,248,.08);box-shadow:0 0 0 3px rgba(129,140,248,.1)}
+.radio-card input:checked+.radio-label .radio-dot{background:#1e3a5f;border-color:#1e3a5f;box-shadow:inset 0 0 0 3px #fff}
+.dark .radio-card input:checked+.radio-label .radio-dot{background:#818cf8;border-color:#818cf8;box-shadow:inset 0 0 0 3px #171717}
+.radio-dot{width:18px;height:18px;border-radius:50%;border:2px solid #d4d4d4;transition:all .2s ease;flex-shrink:0}
+.dark .radio-dot{border-color:rgba(255,255,255,.2)}
+.check-card{position:relative;cursor:pointer;transition:all .2s ease}
+.check-card input{position:absolute;opacity:0;pointer-events:none}
+.check-card .check-label{display:flex;align-items:center;gap:10px;padding:12px 16px;border:1.5px solid #e5e5e5;border-radius:12px;background:#fff;transition:all .2s ease;font-size:13px;font-weight:500}
+.dark .check-card .check-label{border-color:rgba(255,255,255,.12);background:#171717}
+.check-card input:checked+.check-label{border-color:#1e3a5f;background:rgba(30,58,95,.04)}
+.dark .check-card input:checked+.check-label{border-color:#818cf8;background:rgba(129,140,248,.08)}
+.check-box{width:18px;height:18px;border-radius:5px;border:2px solid #d4d4d4;transition:all .2s ease;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.dark .check-box{border-color:rgba(255,255,255,.2)}
+.check-card input:checked+.check-label .check-box{background:#1e3a5f;border-color:#1e3a5f}
+.dark .check-card input:checked+.check-label .check-box{background:#818cf8;border-color:#818cf8}
+.check-card input:checked+.check-label .check-box::after{content:'✓';color:#fff;font-size:11px;font-weight:700}
+.btn-submit{position:relative;overflow:hidden}
+.btn-submit::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);background-size:200% 100%;animation:shimmer 2.5s infinite}
+.progress-step{transition:all .3s ease}
+.progress-step.active .step-circle{background:#1e3a5f;color:#fff;box-shadow:0 0 0 4px rgba(30,58,95,.15)}
+.dark .progress-step.active .step-circle{background:#818cf8;box-shadow:0 0 0 4px rgba(129,140,248,.2)}
+.progress-step.done .step-circle{background:#22c55e;color:#fff}
+.progress-line{height:2px;background:#e5e5e5;transition:all .4s ease}
+.dark .progress-line{background:rgba(255,255,255,.1)}
+.progress-line.filled{background:#1e3a5f}
+.dark .progress-line.filled{background:#818cf8}
+.summary-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed rgba(0,0,0,.08);font-size:13px}
+.dark .summary-item{border-bottom-color:rgba(255,255,255,.08)}
+.fab-summary{position:fixed;bottom:20px;right:20px;z-index:80;animation:float 3s ease-in-out infinite}
+@media(min-width:1024px){.fab-summary{display:none}}
+.toast{animation:slideDown .4s ease-out both}
+.section-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+</style>
+</head>
+<body class="font-sans bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-white transition-colors duration-300 grid-bg">
+
+<!-- Toast Container -->
+<div id="toastContainer" class="fixed top-4 left-3 right-3 sm:left-auto sm:right-4 z-[200] flex flex-col gap-2"></div>
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 right-0 z-[80] bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-neutral-200/50 dark:border-white/10">
+  <div class="max-w-7xl mx-auto px-3 sm:px-6">
+    <div class="flex items-center justify-between h-14 sm:h-16">
+      <a href="index.html" class="flex items-center gap-2 text-sm font-semibold text-neutral-500 hover:text-brand-500 transition-colors">
+        <iconify-icon icon="lucide:arrow-left" width="18"></iconify-icon>
+        <span class="hidden sm:inline">Back to Store</span>
+      </a>
+      <a href="index.html" class="flex-shrink-0">
+        <img src="https://z-cdn-media.chatglm.cn/files/b3810cf7-9be5-4f2e-a46a-30356db97ee9.jpg?auth_key=1887913159-5ddd296aa6d94a5093a51335d83dcdae-0-8e76beeb1d6af4c0023588bb4e43340e" alt="HYPNOTECH" class="h-9">
+      </a>
+      <div class="flex items-center gap-2">
+        <div class="theme-toggle bg-neutral-200 dark:bg-neutral-700" onclick="toggleTheme()">
+          <div class="toggle-ball bg-white dark:bg-brand-500 shadow-md flex items-center justify-center">
+            <iconify-icon icon="lucide:sun" width="12" class="text-amber-500 dark:hidden"></iconify-icon>
+            <iconify-icon icon="lucide:moon" width="12" class="text-white hidden dark:block"></iconify-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="h-14 sm:h-16"></div>
+
+<!-- HERO -->
+<section class="relative py-10 sm:py-14 overflow-hidden" style="background:linear-gradient(135deg,#0a1628,#1e3a5f,#0f2038)">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-10 left-10 w-32 h-32 border border-white/20 rounded-full"></div>
+    <div class="absolute bottom-10 right-10 w-48 h-48 border border-white/10 rounded-full"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-white/5 rounded-full"></div>
+  </div>
+  <div class="max-w-3xl mx-auto px-4 text-center relative z-10">
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-[10px] font-bold uppercase tracking-widest text-white/80 mb-4 animate-slideUp">
+      <iconify-icon icon="lucide:cpu" width="13" class="text-cyan-400"></iconify-icon>
+      Custom PC Builder
+    </div>
+    <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[0.95] tracking-tighter uppercase animate-slideUp delay-100">
+      Build Your<br>Dream PC
+    </h1>
+    <p class="text-white/50 mt-3 text-sm sm:text-base font-light max-w-md mx-auto animate-slideUp delay-200">
+      Select your preferred components below. We'll send you a quote via WhatsApp & Email.
+    </p>
+  </div>
+</section>
+
+<!-- PROGRESS BAR (Desktop) -->
+<div class="hidden lg:block border-b border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.02]">
+  <div class="max-w-4xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <div class="progress-step active flex items-center gap-2" data-step="1">
+        <div class="step-circle w-8 h-8 rounded-full bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center text-xs font-bold transition-all">1</div>
+        <span class="text-xs font-semibold">Details</span>
+      </div>
+      <div class="progress-line flex-1 mx-3" id="line1"></div>
+      <div class="progress-step flex items-center gap-2" data-step="2">
+        <div class="step-circle w-8 h-8 rounded-full bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center text-xs font-bold transition-all">2</div>
+        <span class="text-xs font-semibold">Core</span>
+      </div>
+      <div class="progress-line flex-1 mx-3" id="line2"></div>
+      <div class="progress-step flex items-center gap-2" data-step="3">
+        <div class="step-circle w-8 h-8 rounded-full bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center text-xs font-bold transition-all">3</div>
+        <span class="text-xs font-semibold">Storage</span>
+      </div>
+      <div class="progress-line flex-1 mx-3" id="line3"></div>
+      <div class="progress-step flex items-center gap-2" data-step="4">
+        <div class="step-circle w-8 h-8 rounded-full bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center text-xs font-bold transition-all">4</div>
+        <span class="text-xs font-semibold">Peripherals</span>
+      </div>
+      <div class="progress-line flex-1 mx-3" id="line4"></div>
+      <div class="progress-step flex items-center gap-2" data-step="5">
+        <div class="step-circle w-8 h-8 rounded-full bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center text-xs font-bold transition-all">5</div>
+        <span class="text-xs font-semibold">Submit</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORM -->
+<main class="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10 pb-32 lg:pb-10">
+
+  <!-- SECTION 1: Customer Details -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp" data-section="1">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-blue-100 dark:bg-blue-900/30"><iconify-icon icon="lucide:user" width="20" class="text-blue-600 dark:text-blue-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Your Details</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">So we can contact you with the quote</p>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Full Name <span class="text-red-500">*</span></label>
+        <input type="text" id="custName" class="form-input" placeholder="e.g. Kamal Perera" required>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Phone Number <span class="text-red-500">*</span></label>
+          <input type="tel" id="custPhone" class="form-input" placeholder="e.g. 077 123 4567" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Email</label>
+          <input type="email" id="custEmail" class="form-input" placeholder="e.g. kamal@gmail.com">
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">City <span class="text-red-500">*</span></label>
+          <div class="select-wrap">
+            <select id="custCity" class="form-select" required>
+              <option value="">Select City</option>
+              <option>Colombo</option><option>Dehiwala</option><option>Mount Lavinia</option><option>Nugegoda</option><option>Kottawa</option><option>Maharagama</option><option>Kaduwela</option><option>Battaramulla</option><option>Koswatta</option><option>Gampaha</option><option>Negombo</option><option>Kandy</option><option>Galle</option><option>Kurunegala</option><option>Ratnapura</option><option>Anuradhapura</option><option>Matara</option><option>Jaffna</option><option>Trincomalee</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Budget Range</label>
+          <div class="select-wrap">
+            <select id="custBudget" class="form-select">
+              <option value="">Select Budget</option>
+              <option>Under Rs. 50,000</option>
+              <option>Rs. 50,000 - 100,000</option>
+              <option>Rs. 100,000 - 150,000</option>
+              <option>Rs. 150,000 - 200,000</option>
+              <option>Rs. 200,000 - 300,000</option>
+              <option>Rs. 300,000 - 500,000</option>
+              <option>Above Rs. 500,000</option>
+              <option>Not Sure / Flexible</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">PC Usage Purpose</label>
+        <div class="select-wrap">
+          <select id="custPurpose" class="form-select">
+            <option value="">Select Purpose</option>
+            <option>Office Work / Home Use</option>
+            <option>Study / Online Classes</option>
+            <option>Gaming (Casual)</option>
+            <option>Gaming (Hardcore / AAA)</option>
+            <option>Video Editing</option>
+            <option>Graphic Design</option>
+            <option>3D Modeling / Rendering</option>
+            <option>Software Development</option>
+            <option>Streaming</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Processor -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-100" data-section="2">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-purple-100 dark:bg-purple-900/30"><iconify-icon icon="lucide:cpu" width="20" class="text-purple-600 dark:text-purple-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Processor (CPU)</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">The brain of your PC</p>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">Processor Type <span class="text-red-500">*</span></label>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <label class="radio-card"><input type="radio" name="cpuType" value="Intel Core i3" onchange="updateGens('intel')"><div class="radio-label justify-center"><span class="radio-dot"></span><span>i3</span></div></label>
+          <label class="radio-card"><input type="radio" name="cpuType" value="Intel Core i5" onchange="updateGens('intel')"><div class="radio-label justify-center"><span class="radio-dot"></span><span>i5</span></div></label>
+          <label class="radio-card"><input type="radio" name="cpuType" value="Intel Core i7" onchange="updateGens('intel')"><div class="radio-label justify-center"><span class="radio-dot"></span><span>i7</span></div></label>
+          <label class="radio-card"><input type="radio" name="cpuType" value="Intel Core i9" onchange="updateGens('intel')"><div class="radio-label justify-center"><span class="radio-dot"></span><span>i9</span></div></label>
+          <label class="radio-card"><input type="radio" name="cpuType" value="AMD Ryzen 3" onchange="updateGens('amd')"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Ryzen 3</span></div></label>
+          <label class="radio-card"><input type="radio" name="cpuType" value="AMD Ryzen 5" onchange="updateGens('amd')"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Ryzen 5</span></div></label>
+          <label class="radio-card"><input type="radio" name="cpuType" value="AMD Ryzen 7" onchange="updateGens('amd')"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Ryzen 7</span></div></label>
+          <label class="radio-card"><input type="radio" name="cpuType" value="AMD Ryzen 9" onchange="updateGens('amd')"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Ryzen 9</span></div></label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Generation <span class="text-red-500">*</span></label>
+        <div class="select-wrap">
+          <select id="cpuGen" class="form-select" required>
+            <option value="">Select Generation</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Motherboard -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-100" data-section="2">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-indigo-100 dark:bg-indigo-900/30"><iconify-icon icon="lucide:circuit-board" width="20" class="text-indigo-600 dark:text-indigo-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Motherboard</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Connects all components</p>
+      </div>
+    </div>
+    <div>
+      <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Motherboard Preference</label>
+      <div class="select-wrap">
+        <select id="motherboard" class="form-select">
+          <option value="">Select Motherboard</option>
+          <option>ASUS - Budget (H610/B450)</option>
+          <option>ASUS - Mid Range (B760/B550)</option>
+          <option>ASUS - High End (Z790/X570)</option>
+          <option>MSI - Budget (H610/B450)</option>
+          <option>MSI - Mid Range (B760/B550)</option>
+          <option>MSI - High End (Z790/X570)</option>
+          <option>GIGABYTE - Budget</option>
+          <option>GIGABYTE - Mid Range</option>
+          <option>GIGABYTE - High End</option>
+          <option>ASRock - Budget</option>
+          <option>ASRock - Mid Range</option>
+          <option>ASRock - High End</option>
+          <option>Best compatible (Let us choose)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: RAM -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-100" data-section="2">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-green-100 dark:bg-green-900/30"><iconify-icon icon="lucide:memory-stick" width="20" class="text-green-600 dark:text-green-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">RAM (Memory)</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">More RAM = smoother multitasking</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">Capacity <span class="text-red-500">*</span></label>
+        <div class="grid grid-cols-2 gap-2">
+          <label class="radio-card"><input type="radio" name="ram" value="4GB DDR4"><div class="radio-label justify-center"><span class="radio-dot"></span><span>4GB</span></div></label>
+          <label class="radio-card"><input type="radio" name="ram" value="8GB DDR4"><div class="radio-label justify-center"><span class="radio-dot"></span><span>8GB</span></div></label>
+          <label class="radio-card"><input type="radio" name="ram" value="16GB DDR4"><div class="radio-label justify-center"><span class="radio-dot"></span><span>16GB</span></div></label>
+          <label class="radio-card"><input type="radio" name="ram" value="32GB DDR4"><div class="radio-label justify-center"><span class="radio-dot"></span><span>32GB</span></div></label>
+          <label class="radio-card"><input type="radio" name="ram" value="16GB DDR5"><div class="radio-label justify-center"><span class="radio-dot"></span><span>16GB DDR5</span></div></label>
+          <label class="radio-card"><input type="radio" name="ram" value="32GB DDR5"><div class="radio-label justify-center"><span class="radio-dot"></span><span>32GB DDR5</span></div></label>
+          <label class="radio-card"><input type="radio" name="ram" value="64GB DDR5"><div class="radio-label justify-center"><span class="radio-dot"></span><span>64GB DDR5</span></div></label>
+          <label class="radio-card"><input type="radio" name="ram" value="Let us decide"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Auto</span></div></label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Brand Preference</label>
+        <div class="select-wrap">
+          <select id="ramBrand" class="form-select">
+            <option value="">No Preference</option>
+            <option>Corsair</option><option>Kingston</option><option>G.Skill</option><option>ADATA</option><option>Crucial</option><option>Team Group</option><option>Transcend</option>
+          </select>
+        </div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2 mt-3">RGB?</label>
+        <div class="grid grid-cols-2 gap-2">
+          <label class="radio-card"><input type="radio" name="ramRgb" value="Yes - RGB"><div class="radio-label justify-center"><span class="radio-dot"></span><span>RGB</span></div></label>
+          <label class="radio-card"><input type="radio" name="ramRgb" value="No - Standard"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Standard</span></div></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Storage -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-100" data-section="3">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-orange-100 dark:bg-orange-900/30"><iconify-icon icon="lucide:hard-drive" width="20" class="text-orange-600 dark:text-orange-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Storage</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">HDD for storage, SSD for speed</p>
+      </div>
+    </div>
+    <div class="space-y-5">
+      <!-- HDD -->
+      <div class="p-4 bg-neutral-50 dark:bg-white/[0.03] rounded-xl">
+        <h3 class="text-sm font-bold mb-3 flex items-center gap-2"><iconify-icon icon="lucide:database" width="16" class="text-neutral-400"></iconify-icon> Hard Disk (HDD)</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <label class="radio-card"><input type="radio" name="hdd" value="No HDD"><div class="radio-label justify-center"><span class="radio-dot"></span><span>No HDD</span></div></label>
+          <label class="radio-card"><input type="radio" name="hdd" value="1TB HDD"><div class="radio-label justify-center"><span class="radio-dot"></span><span>1TB</span></div></label>
+          <label class="radio-card"><input type="radio" name="hdd" value="2TB HDD"><div class="radio-label justify-center"><span class="radio-dot"></span><span>2TB</span></div></label>
+          <label class="radio-card"><input type="radio" name="hdd" value="4TB HDD"><div class="radio-label justify-center"><span class="radio-dot"></span><span>4TB</span></div></label>
+        </div>
+        <div class="mt-2">
+          <div class="select-wrap">
+            <select id="hddBrand" class="form-select">
+              <option value="">HDD Brand (No Preference)</option>
+              <option>Seagate</option><option>Western Digital (WD)</option><option>Toshiba</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- SSD -->
+      <div class="p-4 bg-neutral-50 dark:bg-white/[0.03] rounded-xl">
+        <h3 class="text-sm font-bold mb-3 flex items-center gap-2"><iconify-icon icon="lucide:zap" width="16" class="text-yellow-500"></iconify-icon> Solid State Drive (SSD) <span class="text-[10px] font-semibold text-green-500 bg-green-100 dark:bg-green-900/30 px-2 py-0.5 rounded-full">Recommended</span></h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+          <label class="radio-card"><input type="radio" name="ssd" value="No SSD"><div class="radio-label justify-center"><span class="radio-dot"></span><span>No SSD</span></div></label>
+          <label class="radio-card"><input type="radio" name="ssd" value="256GB SSD"><div class="radio-label justify-center"><span class="radio-dot"></span><span>256GB</span></div></label>
+          <label class="radio-card"><input type="radio" name="ssd" value="512GB SSD"><div class="radio-label justify-center"><span class="radio-dot"></span><span>512GB</span></div></label>
+          <label class="radio-card"><input type="radio" name="ssd" value="1TB SSD"><div class="radio-label justify-center"><span class="radio-dot"></span><span>1TB</span></div></label>
+          <label class="radio-card"><input type="radio" name="ssd" value="2TB SSD"><div class="radio-label justify-center"><span class="radio-dot"></span><span>2TB</span></div></label>
+          <label class="radio-card"><input type="radio" name="ssd" value="4TB SSD"><div class="radio-label justify-center"><span class="radio-dot"></span><span>4TB</span></div></label>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">SSD Type</label>
+            <div class="select-wrap">
+              <select id="ssdType" class="form-select">
+                <option value="">Select Type</option>
+                <option>SATA SSD</option>
+                <option>NVMe M.2 SSD</option>
+                <option>NVMe Gen 4 M.2</option>
+                <option>NVMe Gen 5 M.2</option>
+                <option>Best compatible</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">SSD Brand</label>
+            <div class="select-wrap">
+              <select id="ssdBrand" class="form-select">
+                <option value="">No Preference</option>
+                <option>Samsung</option><option>Western Digital</option><option>Crucial</option><option>Kingston</option><option>ADATA</option><option>Team Group</option><option>Lexar</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: Graphics Card -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-100" data-section="2">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-red-100 dark:bg-red-900/30"><iconify-icon icon="lucide:gpu-card" width="20" class="text-red-600 dark:text-red-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Graphics Card (GPU)</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">For gaming & graphics work</p>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">GPU Option <span class="text-red-500">*</span></label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <label class="radio-card"><input type="radio" name="gpu" value="Integrated Graphics (No dedicated GPU)" onchange="toggleGpuDetails(false)"><div class="radio-label"><span class="radio-dot"></span><div><span class="block font-semibold text-sm">Integrated Only</span><span class="block text-[11px] text-neutral-500">Built into CPU - No extra cost</span></div></div></label>
+          <label class="radio-card"><input type="radio" name="gpu" value="Dedicated GPU" onchange="toggleGpuDetails(true)"><div class="radio-label"><span class="radio-dot"></span><div><span class="block font-semibold text-sm">Dedicated GPU</span><span class="block text-[11px] text-neutral-500">For gaming / heavy work</span></div></div></label>
+        </div>
+      </div>
+      <div id="gpuDetails" class="hidden space-y-4 p-4 bg-neutral-50 dark:bg-white/[0.03] rounded-xl">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">GPU Model</label>
+          <div class="select-wrap">
+            <select id="gpuModel" class="form-select">
+              <option value="">Select GPU</option>
+              <optgroup label="NVIDIA">
+                <option>NVIDIA GT 1030</option>
+                <option>NVIDIA GTX 1650</option>
+                <option>NVIDIA GTX 1660 Super</option>
+                <option>NVIDIA RTX 3050</option>
+                <option>NVIDIA RTX 3060</option>
+                <option>NVIDIA RTX 3060 Ti</option>
+                <option>NVIDIA RTX 4060</option>
+                <option>NVIDIA RTX 4060 Ti</option>
+                <option>NVIDIA RTX 4070</option>
+                <option>NVIDIA RTX 4070 Super</option>
+                <option>NVIDIA RTX 4080 Super</option>
+                <option>NVIDIA RTX 4090</option>
+              </optgroup>
+              <optgroup label="AMD">
+                <option>AMD RX 6500 XT</option>
+                <option>AMD RX 6600</option>
+                <option>AMD RX 6650 XT</option>
+                <option>AMD RX 6750 XT</option>
+                <option>AMD RX 7600</option>
+                <option>AMD RX 7700 XT</option>
+                <option>AMD RX 7800 XT</option>
+                <option>AMD RX 7900 XTX</option>
+              </optgroup>
+              <option>Other (Specify in notes)</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Brand Preference</label>
+          <div class="select-wrap">
+            <select id="gpuBrand" class="form-select">
+              <option value="">No Preference</option>
+              <option>ASUS</option><option>MSI</option><option>GIGABYTE</option><option>ZOTAC</option><option>PNY</option><option>Sapphire (AMD)</option><option>XFX (AMD)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: Power Supply -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-100" data-section="2">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-yellow-100 dark:bg-yellow-900/30"><iconify-icon icon="lucide:zap" width="20" class="text-yellow-600 dark:text-yellow-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Power Supply (PSU)</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Powers all your components</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+      <label class="radio-card"><input type="radio" name="psu" value="Best compatible"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Auto</span></div></label>
+      <label class="radio-card"><input type="radio" name="psu" value="450W PSU"><div class="radio-label justify-center"><span class="radio-dot"></span><span>450W</span></div></label>
+      <label class="radio-card"><input type="radio" name="psu" value="550W PSU"><div class="radio-label justify-center"><span class="radio-dot"></span><span>550W</span></div></label>
+      <label class="radio-card"><input type="radio" name="psu" value="650W PSU"><div class="radio-label justify-center"><span class="radio-dot"></span><span>650W</span></div></label>
+      <label class="radio-card"><input type="radio" name="psu" value="750W PSU"><div class="radio-label justify-center"><span class="radio-dot"></span><span>750W</span></div></label>
+      <label class="radio-card"><input type="radio" name="psu" value="850W PSU"><div class="radio-label justify-center"><span class="radio-dot"></span><span>850W</span></div></label>
+      <label class="radio-card"><input type="radio" name="psu" value="1000W PSU"><div class="radio-label justify-center"><span class="radio-dot"></span><span>1000W</span></div></label>
+      <label class="radio-card"><input type="radio" name="psu" value="1200W+ PSU"><div class="radio-label justify-center"><span class="radio-dot"></span><span>1200W+</span></div></label>
+    </div>
+    <div class="select-wrap">
+      <select id="psuBrand" class="form-select">
+        <option value="">PSU Brand (No Preference)</option>
+        <option>Corsair</option><option>EVGA</option><option>Seasonic</option><option>Thermaltake</option><option>Cooler Master</option><option>MSI</option><option>DeepCool</option><option>Antec</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- SECTION 8: Casing -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-100" data-section="2">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-teal-100 dark:bg-teal-900/30"><iconify-icon icon="lucide:box" width="20" class="text-teal-600 dark:text-teal-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Casing (Case)</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Houses and protects everything</p>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">Case Size <span class="text-red-500">*</span></label>
+        <div class="grid grid-cols-3 gap-2">
+          <label class="radio-card"><input type="radio" name="caseSize" value="mATX / Micro ATX"><div class="radio-label justify-center flex-col !gap-1"><span class="radio-dot"></span><span class="text-xs font-bold">mATX</span><span class="text-[10px] text-neutral-500">Compact</span></div></label>
+          <label class="radio-card"><input type="radio" name="caseSize" value="ATX Mid Tower"><div class="radio-label justify-center flex-col !gap-1"><span class="radio-dot"></span><span class="text-xs font-bold">ATX</span><span class="text-[10px] text-neutral-500">Mid Tower</span></div></label>
+          <label class="radio-card"><input type="radio" name="caseSize" value="ATX Full Tower"><div class="radio-label justify-center flex-col !gap-1"><span class="radio-dot"></span><span class="text-xs font-bold">Full Tower</span><span class="text-[10px] text-neutral-500">Large</span></div></label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">Case Type</label>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <label class="radio-card"><input type="radio" name="caseType" value="Standard (No Glass)"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Standard</span></div></label>
+          <label class="radio-card"><input type="radio" name="caseType" value="Tempered Glass Side Panel"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Glass Panel</span></div></label>
+          <label class="radio-card"><input type="radio" name="caseType" value="Full Tempered Glass"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Full Glass</span></div></label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">RGB Fans?</label>
+        <div class="grid grid-cols-2 gap-2">
+          <label class="radio-card"><input type="radio" name="caseRgb" value="Yes - With RGB Fans"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Yes - RGB</span></div></label>
+          <label class="radio-card"><input type="radio" name="caseRgb" value="No - Standard Fans"><div class="radio-label justify-center"><span class="radio-dot"></span><span>No - Standard</span></div></label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Brand Preference</label>
+        <div class="select-wrap">
+          <select id="caseBrand" class="form-select">
+            <option value="">No Preference</option>
+            <option>Antec</option><option>Corsair</option><option>Cooler Master</option><option>DeepCool</option><option>Montech</option><option>Thermaltake</option><option>MSI</option><option>ASUS</option><option>Phanteks</option><option>Lian Li</option><option>Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 9: Keyboard -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-200" data-section="4">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-cyan-100 dark:bg-cyan-900/30"><iconify-icon icon="lucide:keyboard" width="20" class="text-cyan-600 dark:text-cyan-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Keyboard</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Your typing experience</p>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">Type <span class="text-red-500">*</span></label>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <label class="radio-card"><input type="radio" name="keyboard" value="Not Needed"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Not Needed</span></div></label>
+          <label class="radio-card"><input type="radio" name="keyboard" value="Normal USB Keyboard"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Normal</span></div></label>
+          <label class="radio-card"><input type="radio" name="keyboard" value="Gaming Keyboard (Membrane)"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Gaming</span></div></label>
+          <label class="radio-card"><input type="radio" name="keyboard" value="Mechanical Gaming Keyboard"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Mechanical</span></div></label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Brand Preference</label>
+        <div class="select-wrap">
+          <select id="kbBrand" class="form-select">
+            <option value="">No Preference</option>
+            <option>Redragon</option><option>Genesis</option><option>ASUS ROG</option><option>HyperX</option><option>Razer</option><option>SteelSeries</option><option>Corsair</option><option>Logitech</option><option>Keychron</option><option>A4Tech</option><option>Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 10: Mouse -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-200" data-section="4">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-pink-100 dark:bg-pink-900/30"><iconify-icon icon="lucide:mouse" width="20" class="text-pink-600 dark:text-pink-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Mouse</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Precision control</p>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">Type <span class="text-red-500">*</span></label>
+        <div class="grid grid-cols-3 gap-2">
+          <label class="radio-card"><input type="radio" name="mouse" value="Not Needed"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Not Needed</span></div></label>
+          <label class="radio-card"><input type="radio" name="mouse" value="Normal Mouse"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Normal</span></div></label>
+          <label class="radio-card"><input type="radio" name="mouse" value="Gaming Mouse"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Gaming</span></div></label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Brand Preference</label>
+        <div class="select-wrap">
+          <select id="mouseBrand" class="form-select">
+            <option value="">No Preference</option>
+            <option>Redragon</option><option>Genesis</option><option>ASUS ROG</option><option>HyperX</option><option>Razer</option><option>SteelSeries</option><option>Corsair</option><option>Logitech</option><option>A4Tech</option><option>Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 11: Monitor -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-200" data-section="4">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-violet-100 dark:bg-violet-900/30"><iconify-icon icon="lucide:tv" width="20" class="text-violet-600 dark:text-violet-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Monitor</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Your display experience</p>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">Size <span class="text-red-500">*</span></label>
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+          <label class="radio-card"><input type="radio" name="monitor" value="Not Needed"><div class="radio-label justify-center"><span class="radio-dot"></span><span>None</span></div></label>
+          <label class="radio-card"><input type="radio" name="monitor" value='19" Monitor'><div class="radio-label justify-center"><span class="radio-dot"></span><span>19"</span></div></label>
+          <label class="radio-card"><input type="radio" name="monitor" value='21.5" Monitor'><div class="radio-label justify-center"><span class="radio-dot"></span><span>21.5"</span></div></label>
+          <label class="radio-card"><input type="radio" name="monitor" value='24" Monitor'><div class="radio-label justify-center"><span class="radio-dot"></span><span>24"</span></div></label>
+          <label class="radio-card"><input type="radio" name="monitor" value='27" Monitor'><div class="radio-label justify-center"><span class="radio-dot"></span><span>27"</span></div></label>
+          <label class="radio-card"><input type="radio" name="monitor" value='32" Monitor'><div class="radio-label justify-center"><span class="radio-dot"></span><span>32"</span></div></label>
+          <label class="radio-card"><input type="radio" name="monitor" value='34" Ultrawide'><div class="radio-label justify-center"><span class="radio-dot"></span><span>34" UW</span></div></label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Panel Type</label>
+        <div class="select-wrap">
+          <select id="monitorType" class="form-select">
+            <option value="">No Preference</option>
+            <option>IPS Panel (Best colors)</option>
+            <option>VA Panel (Best contrast)</option>
+            <option>TN Panel (Fastest response)</option>
+            <option>OLED (Premium)</option>
+            <option>Curved</option>
+            <option>Flat</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Refresh Rate</label>
+        <div class="select-wrap">
+          <select id="monitorHz" class="form-select">
+            <option value="">No Preference</option>
+            <option>60Hz (Standard)</option>
+            <option>75Hz</option>
+            <option>100Hz</option>
+            <option>144Hz (Gaming)</option>
+            <option>165Hz (Gaming)</option>
+            <option>180Hz (Gaming)</option>
+            <option>240Hz+ (Esports)</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Brand Preference</label>
+        <div class="select-wrap">
+          <select id="monitorBrand" class="form-select">
+            <option value="">No Preference</option>
+            <option>LG</option><option>Samsung</option><option>Dell</option><option>ASUS</option><option>MSI</option><option>ACER</option><option>AOC</option><option>BenQ</option><option>Gigabyte</option><option>Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 12: Speaker -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-200" data-section="4">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-amber-100 dark:bg-amber-900/30"><iconify-icon icon="lucide:speaker" width="20" class="text-amber-600 dark:text-amber-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Speaker</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Audio output</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+      <label class="radio-card"><input type="radio" name="speaker" value="Not Needed"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Not Needed</span></div></label>
+      <label class="radio-card"><input type="radio" name="speaker" value="Basic 2.0 Speaker"><div class="radio-label justify-center flex-col !gap-0.5"><span class="radio-dot"></span><span class="text-xs font-bold">2.0</span><span class="text-[10px] text-neutral-500">Basic</span></div></label>
+      <label class="radio-card"><input type="radio" name="speaker" value="2.1 Speaker (With Subwoofer)"><div class="radio-label justify-center flex-col !gap-0.5"><span class="radio-dot"></span><span class="text-xs font-bold">2.1</span><span class="text-[10px] text-neutral-500">Subwoofer</span></div></label>
+      <label class="radio-card"><input type="radio" name="speaker" value="Gaming Speaker"><div class="radio-label justify-center"><span class="radio-dot"></span><span>Gaming</span></div></label>
+    </div>
+    <div class="select-wrap">
+      <select id="speakerBrand" class="form-select">
+        <option value="">Speaker Brand (No Preference)</option>
+        <option>Logitech</option><option>Creative</option><option>Edifier</option><option>Redragon</option><option>Razer</option><option>Corsair</option><option>Other</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- SECTION 13: Extras -->
+  <div class="form-section bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-4 animate-slideUp delay-300" data-section="5">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon bg-rose-100 dark:bg-rose-900/30"><iconify-icon icon="lucide:package-plus" width="20" class="text-rose-600 dark:text-rose-400"></iconify-icon></div>
+      <div>
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Extras & Add-ons</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Optional additional items</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+      <label class="check-card"><input type="checkbox" name="extras" value="Webcam"><div class="check-label"><span class="check-box"></span><span>Webcam</span></div></label>
+      <label class="check-card"><input type="checkbox" name="extras" value="Headset / Headphones"><div class="check-label"><span class="check-box"></span><span>Headset / Headphones</span></div></label>
+      <label class="check-card"><input type="checkbox" name="extras" value="Mouse Pad (Large)"><div class="check-label"><span class="check-box"></span><span>Mouse Pad (Large)</span></div></label>
+      <label class="check-card"><input type="checkbox" name="extras" value="UPS / Backup Power"><div class="check-label"><span class="check-box"></span><span>UPS / Backup Power</span></div></label>
+      <label class="check-card"><input type="checkbox" name="extras" value="WiFi Adapter / Card"><div class="check-label"><span class="check-box"></span><span>WiFi Adapter / Card</span></div></label>
+      <label class="check-card"><input type="checkbox" name="extras" value="Bluetooth Adapter"><div class="check-label"><span class="check-box"></span><span>Bluetooth Adapter</span></div></label>
+      <label class="check-card"><input type="checkbox" name="extras" value="CPU Cooler (Aftermarket)"><div class="check-label"><span class="check-box"></span><span>CPU Cooler (Aftermarket)</span></div></label>
+      <label class="check-card"><input type="checkbox" name="extras" value="Thermal Paste (Premium)"><div class="check-label"><span class="check-box"></span><span>Thermal Paste (Premium)</span></div></label>
+      <label class="check-card"><input type="checkbox" name="extras" value="Cable Management Accessories"><div class="check-label"><span class="check-box"></span><span>Cable Management</span></div></label>
+      <label class="check-card"><input type="checkbox" name="extras" value="OS Installation (Windows)"><div class="check-label"><span class="check-box"></span><span>Windows OS Install</span></div></label>
+    </div>
+    <div>
+      <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">Special Requirements / Notes</label>
+      <textarea id="notes" class="form-textarea" placeholder="Any specific requirements, preferred colors, custom requests, questions..."></textarea>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="summarySection" class="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-white/10 p-5 sm:p-6 mb-6 animate-slideUp delay-400">
+    <div class="flex items-center gap-3 mb-4 cursor-pointer" onclick="toggleSummary()">
+      <div class="section-icon bg-brand-500/10"><iconify-icon icon="lucide:clipboard-list" width="20" class="text-brand-500"></iconify-icon></div>
+      <div class="flex-1">
+        <h2 class="font-display text-lg font-bold uppercase tracking-tight">Order Summary</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Review your selections before submitting</p>
+      </div>
+      <iconify-icon icon="lucide:chevron-down" width="20" class="text-neutral-400 transition-transform duration-300" id="summaryArrow"></iconify-icon>
+    </div>
+    <div id="summaryContent" class="hidden">
+      <div id="summaryList" class="space-y-0"></div>
+      <div class="mt-4 pt-4 border-t-2 border-neutral-200 dark:border-white/10">
+        <p class="text-xs text-neutral-500 dark:text-neutral-400"><iconify-icon icon="lucide:info" width="13" class="inline-block mr-1"></iconify-icon> Final price will be quoted by our team based on current market prices.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMIT BUTTONS -->
+  <div class="flex flex-col sm:flex-row gap-3 animate-slideUp delay-400">
+    <button onclick="submitWhatsApp()" class="btn-submit flex-1 py-4 bg-green-600 hover:bg-green-700 text-white font-bold text-sm uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2.5 active:scale-[0.98] shadow-lg shadow-green-600/20">
+      <iconify-icon icon="simple-icons:whatsapp" width="20"></iconify-icon>
+      Send via WhatsApp
+    </button>
+    <button onclick="submitEmail()" class="btn-submit flex-1 py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2.5 active:scale-[0.98] shadow-lg shadow-brand-500/20">
+      <iconify-icon icon="lucide:mail" width="20"></iconify-icon>
+      Send via Email
+    </button>
+  </div>
+  <p class="text-center text-[11px] text-neutral-400 dark:text-neutral-500 mt-4">By submitting, you agree to be contacted by HYPNOTECH COMPUTERS regarding your custom build inquiry.</p>
+
+</main>
+
+<!-- FLOATING SUMMARY BUTTON (Mobile) -->
+<button onclick="toggleSummary();document.getElementById('summarySection').scrollIntoView({behavior:'smooth',block:'center'})" class="fab-summary w-14 h-14 bg-brand-500 text-white rounded-full shadow-xl shadow-brand-500/30 flex items-center justify-center active:scale-90 transition-transform lg:hidden">
+  <iconify-icon icon="lucide:clipboard-list" width="22"></iconify-icon>
+</button>
+
+<!-- FOOTER -->
+<footer class="bg-neutral-900 dark:bg-black text-white/50 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+    <img src="https://z-cdn-media.chatglm.cn/files/b3810cf7-9be5-4f2e-a46a-30356db97ee9.jpg?auth_key=1887913159-5ddd296aa6d94a5093a51335d83dcdae-0-8e76beeb1d6af4c0023588bb4e43340e" alt="HYPNOTECH" class="h-8 mx-auto mb-3 opacity-60">
+    <p class="text-xs">&copy; 2024 HYPNOTECH COMPUTERS. All rights reserved.</p>
+    <p class="text-[11px] mt-1">www.hypnotech.lk</p>
+  </div>
+</footer>
+
+<script>
+// ============================================
+// ⚠️ CONFIGURATION - CHANGE THESE VALUES ⚠️
+// ============================================
+const WHATSAPP_NUMBER = '94771234567';  // Your WhatsApp number (country code + number, no + or spaces)
+const EMAIL_ADDRESS = 'info@hypnotech.lk'; // Your email address
+// ============================================
+
+// Theme
+function toggleTheme(){document.documentElement.classList.toggle('dark');localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light')}
+if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}
+
+// Toast
+function showToast(msg,type='info'){
+  const c=document.getElementById('toastContainer');
+  const colors={success:'bg-green-600',error:'bg-red-600',info:'bg-brand-500',warning:'bg-amber-600'};
+  const icons={success:'lucide:check-circle',error:'lucide:x-circle',info:'lucide:info',warning:'lucide:alert-triangle'};
+  const t=document.createElement('div');
+  t.className=`toast flex items-center gap-2.5 px-4 py-3 ${colors[type]} text-white rounded-xl shadow-lg text-sm font-medium`;
+  t.innerHTML=`<iconify-icon icon="${icons[type]}" width="18"></iconify-icon><span class="flex-1">${msg}</span><button onclick="this.parentElement.remove()" class="opacity-70 hover:opacity-100"><iconify-icon icon="lucide:x" width="14"></iconify-icon></button>`;
+  c.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(-10px)';t.style.transition='all .3s';setTimeout(()=>t.remove(),300)},4000);
+}
+
+// CPU Generation update
+function updateGens(brand){
+  const sel=document.getElementById('cpuGen');
+  sel.innerHTML='<option value="">Select Generation</option>';
+  if(brand==='intel'){
+    ['8th Gen','9th Gen','10th Gen','11th Gen','12th Gen','13th Gen','14th Gen','Latest Available'].forEach(g=>{
+      sel.innerHTML+=`<option>${g}</option>`;
+    });
+  } else {
+    ['1000 Series','2000 Series','3000 Series','5000 Series','7000 Series','8000 Series','9000 Series','Latest Available'].forEach(g=>{
+      sel.innerHTML+=`<option>${g}</option>`;
+    });
+  }
+}
+
+// GPU details toggle
+function toggleGpuDetails(show){document.getElementById('gpuDetails').classList.toggle('hidden',!show)}
+
+// Summary toggle
+function toggleSummary(){
+  const c=document.getElementById('summaryContent');
+  const a=document.getElementById('summaryArrow');
+  c.classList.toggle('hidden');
+  a.style.transform=c.classList.contains('hidden')?'':'rotate(180deg)';
+}
+
+// Get radio value
+function getRadio(name){
+  const el=document.querySelector(`input[name="${name}"]:checked`);
+  return el?el.value:'';
+}
+
+// Get checkbox values
+function getCheckboxes(name){
+  return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(e=>e.value);
+}
+
+// Get select value
+function getSelect(id){
+  const el=document.getElementById(id);
+  return el&&el.value?el.value:'';
+}
+
+// Build summary
+function buildSummary(){
+  const items=[
+    {label:'Name',value:document.getElementById('custName').value||'—'},
+    {label:'Phone',value:document.getElementById('custPhone').value||'—'},
+    {label:'Email',value:document.getElementById('custEmail').value||'—'},
+    {label:'City',value:getSelect('custCity')||'—'},
+    {label:'Budget',value:getSelect('custBudget')||'—'},
+    {label:'Purpose',value:getSelect('custPurpose')||'—'},
+    {label:'Processor',value:(()=>{const t=getRadio('cpuType');const g=getSelect('cpuGen');return t?(t+(g?' ('+g+')':'')):'—'})()},
+    {label:'Motherboard',value:getSelect('motherboard')||'—'},
+    {label:'RAM',value:(()=>{const r=getRadio('ram');const b=getSelect('ramBrand');const rgb=getRadio('ramRgb');return r?(r+(b?' • '+b:'')+(rgb?' • '+rgb:'')):'—'})()},
+    {label:'HDD',value:(()=>{const h=getRadio('hdd');const b=getSelect('hddBrand');return h?(h+(b&&h!=='No HDD'?' • '+b:'')):'—'})()},
+    {label:'SSD',value:(()=>{const s=getRadio('ssd');const t=getSelect('ssdType');const b=getSelect('ssdBrand');return s?(s+(t&&s!=='No SSD'?' • '+t:'')+(b&&s!=='No SSD'?' • '+b:'')):'—'})()},
+    {label:'GPU',value:(()=>{const g=getRadio('gpu');if(!g||g.includes('Integrated'))return g||'—';const m=getSelect('gpuModel');const b=getSelect('gpuBrand');return (m||'Dedicated')+(b?' • '+b:'')})()},
+    {label:'PSU',value:(()=>{const p=getRadio('psu');const b=getSelect('psuBrand');return p?(p+(b&&p!=='Best compatible'?' • '+b:'')):'—'})()},
+    {label:'Casing',value:(()=>{const s=getRadio('caseSize');const t=getRadio('caseType');const r=getRadio('caseRgb');const b=getSelect('caseBrand');return s?[s,t,r,b].filter(x=>x).join(' • '):'—'})()},
+    {label:'Keyboard',value:(()=>{const k=getRadio('keyboard');const b=getSelect('kbBrand');return k?(k+(b&&k!=='Not Needed'?' • '+b:'')):'—'})()},
+    {label:'Mouse',value:(()=>{const m=getRadio('mouse');const b=getSelect('mouseBrand');return m?(m+(b&&m!=='Not Needed'?' • '+b:'')):'—'})()},
+    {label:'Monitor',value:(()=>{const m=getRadio('monitor');const t=getSelect('monitorType');const h=getSelect('monitorHz');const b=getSelect('monitorBrand');return m?[m,t,h,b].filter(x=>x).join(' • '):'—'})()},
+    {label:'Speaker',value:(()=>{const s=getRadio('speaker');const b=getSelect('speakerBrand');return s?(s+(b&&s!=='Not Needed'?' • '+b:'')):'—'})()},
+    {label:'Extras',value:getCheckboxes('extras').join(', ')||'None'},
+    {label:'Notes',value:document.getElementById('notes').value||'None'},
+  ];
+  
+  const list=document.getElementById('summaryList');
+  list.innerHTML='';
+  items.forEach(item=>{
+    const div=document.createElement('div');
+    div.className='summary-item';
+    div.innerHTML=`<span class="text-neutral-500 dark:text-neutral-400">${item.label}</span><span class="font-medium text-right max-w-[60%]">${item.value}</span>`;
+    list.appendChild(div);
+  });
+}
+
+// Build message text
+function buildMessage(){
+  const lines=[];
+  lines.push('🖥️ *CUSTOM PC BUILD REQUEST*');
+  lines.push('🏪 HYPNOTECH COMPUTERS');
+  lines.push('━━━━━━━━━━━━━━━━━━');
+  lines.push('');
+  lines.push('👤 *CUSTOMER DETAILS*');
+  lines.push(`   Name: ${document.getElementById('custName').value||'N/A'}`);
+  lines.push(`   Phone: ${document.getElementById('custPhone').value||'N/A'}`);
+  lines.push(`   Email: ${document.getElementById('custEmail').value||'N/A'}`);
+  lines.push(`   City: ${getSelect('custCity')||'N/A'}`);
+  lines.push(`   Budget: ${getSelect('custBudget')||'N/A'}`);
+  lines.push(`   Purpose: ${getSelect('custPurpose')||'N/A'}`);
+  lines.push('');
+  lines.push('🔧 *BUILD CONFIGURATION*');
+  lines.push(`   CPU: ${(()=>{const t=getRadio('cpuType');const g=getSelect('cpuGen');return t?(t+(g?' ('+g+')':'')):'N/A'})()}`);
+  lines.push(`   Motherboard: ${getSelect('motherboard')||'N/A'}`);
+  lines.push(`   RAM: ${(()=>{const r=getRadio('ram');const b=getSelect('ramBrand');const rgb=getRadio('ramRgb');return r?(r+(b?' ('+b+')':'')+(rgb?' ['+rgb+']':'')):'N/A'})()}`);
+  lines.push(`   HDD: ${(()=>{const h=getRadio('hdd');const b=getSelect('hddBrand');return h?(h+(b&&h!=='No HDD'?' ('+b+')':'')):'N/A'})()}`);
+  lines.push(`   SSD: ${(()=>{const s=getRadio('ssd');const t=getSelect('ssdType');const b=getSelect('ssdBrand');return s?(s+(t&&s!=='No SSD'?' • '+t:'')+(b&&s!=='No SSD'?' ('+b+')':'')):'N/A'})()}`);
+  
+  const gpu=getRadio('gpu');
+  if(gpu&&gpu.includes('Dedicated')){
+    lines.push(`   GPU: ${getSelect('gpuModel')||'Dedicated'}${getSelect('gpuBrand')?' ('+getSelect('gpuBrand')+')':''}`);
+  } else {
+    lines.push(`   GPU: ${gpu||'N/A'}`);
+  }
+  
+  lines.push(`   PSU: ${(()=>{const p=getRadio('psu');const b=getSelect('psuBrand');return p?(p+(b&&p!=='Best compatible'?' ('+b+')':'')):'N/A'})()}`);
+  lines.push(`   Casing: ${(()=>{const s=getRadio('caseSize');const t=getRadio('caseType');const r=getRadio('caseRgb');const b=getSelect('caseBrand');return s?[s,t,r,b].filter(x=>x).join(' | '):'N/A'})()}`);
+  lines.push('');
+  lines.push('🕹️ *PERIPHERALS*');
+  lines.push(`   Keyboard: ${(()=>{const k=getRadio('keyboard');const b=getSelect('kbBrand');return k?(k+(b&&k!=='Not Needed'?' ('+b+')':'')):'N/A'})()}`);
+  lines.push(`   Mouse: ${(()=>{const m=getRadio('mouse');const b=getSelect('mouseBrand');return m?(m+(b&&m!=='Not Needed'?' ('+b+')':'')):'N/A'})()}`);
+  lines.push(`   Monitor: ${(()=>{const m=getRadio('monitor');const t=getSelect('monitorType');const h=getSelect('monitorHz');const b=getSelect('monitorBrand');return m?[m,t,h,b].filter(x=>x).join(' | '):'N/A'})()}`);
+  lines.push(`   Speaker: ${(()=>{const s=getRadio('speaker');const b=getSelect('speakerBrand');return s?(s+(b&&s!=='Not Needed'?' ('+b+')':'')):'N/A'})()}`);
+  
+  const extras=getCheckboxes('extras');
+  if(extras.length)lines.push(`   Extras: ${extras.join(', ')}`);
+  
+  const notes=document.getElementById('notes').value;
+  if(notes){
+    lines.push('');
+    lines.push('📝 *NOTES*');
+    lines.push(`   ${notes}`);
+  }
+  
+  lines.push('');
+  lines.push('━━━━━━━━━━━━━━━━━━');
+  lines.push('⏰ '+new Date().toLocaleString('en-US',{dateStyle:'medium',timeStyle:'short'}));
+  
+  return lines.join('\n');
+}
+
+// Build email body (plain text version)
+function buildEmailBody(){
+  return buildMessage().replace(/\*/g,'');
+}
+
+// Validate form
+function validateForm(){
+  const name=document.getElementById('custName').value.trim();
+  const phone=document.getElementById('custPhone').value.trim();
+  const city=getSelect('custCity');
+  const cpu=getRadio('cpuType');
+  const gen=getSelect('cpuGen');
+  const ram=getRadio('ram');
+  const hdd=getRadio('hdd');
+  const ssd=getRadio('ssd');
+  const gpu=getRadio('gpu');
+  const psu=getRadio('psu');
+  const caseSize=getRadio('caseSize');
+  const kb=getRadio('keyboard');
+  const mouse=getRadio('mouse');
+  const monitor=getRadio('monitor');
+  const speaker=getRadio('speaker');
+  
+  if(!name){showToast('Please enter your name','error');document.getElementById('custName').focus();return false}
+  if(!phone){showToast('Please enter your phone number','error');document.getElementById('custPhone').focus();return false}
+  if(!city){showToast('Please select your city','error');return false}
+  if(!cpu){showToast('Please select a processor','error');return false}
+  if(!gen){showToast('Please select processor generation','error');return false}
+  if(!ram){showToast('Please select RAM capacity','error');return false}
+  if(!hdd){showToast('Please select HDD option','error');return false}
+  if(!ssd){showToast('Please select SSD option','error');return false}
+  if(!gpu){showToast('Please select GPU option','error');return false}
+  if(!psu){showToast('Please select PSU wattage','error');return false}
+  if(!caseSize){showToast('Please select case size','error');return false}
+  if(!kb){showToast('Please select keyboard option','error');return false}
+  if(!mouse){showToast('Please select mouse option','error');return false}
+  if(!monitor){showToast('Please select monitor option','error');return false}
+  if(!speaker){showToast('Please select speaker option','error');return false}
+  return true;
+}
+
+// Submit via WhatsApp
+function submitWhatsApp(){
+  if(!validateForm()) return;
+  buildSummary();
+  const msg=encodeURIComponent(buildMessage());
+  const url=`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+  window.open(url,'_blank');
+  showToast('Opening WhatsApp...','success');
+}
+
+// Submit via Email
+function submitEmail(){
+  if(!validateForm()) return;
+  buildSummary();
+  const subject=encodeURIComponent(`Custom PC Build Request - ${document.getElementById('custName').value}`);
+  const body=encodeURIComponent(buildEmailBody());
+  const url=`mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
+  window.location.href=url;
+  showToast('Opening email client...','success');
+}
+
+// Progress bar update on scroll
+function updateProgress(){
+  const sections=document.querySelectorAll('.form-section');
+  const steps=document.querySelectorAll('.progress-step');
+  const lines=[document.getElementById('line1'),document.getElementById('line2'),document.getElementById('line3'),document.getElementById('line4')];
+  const viewH=window.innerHeight;
+  let activeStep=1;
+  
+  const sectionMap={1:[],2:[],3:[],4:[],5:[]};
+  sections.forEach(s=>{
+    const sn=parseInt(s.dataset.section);
+    sectionMap[sn].push(s);
+  });
+  
+  for(let i=5;i>=1;i--){
+    const secs=sectionMap[i];
+    let anyVisible=false;
+    secs.forEach(s=>{
+      const rect=s.getBoundingClientRect();
+      if(rect.top<viewH*0.5) anyVisible=true;
+    });
+    if(anyVisible){activeStep=i;break}
+  }
+  
+  steps.forEach((step,i)=>{
+    const sn=i+1;
+    step.classList.remove('active','done');
+    if(sn<activeStep) step.classList.add('done');
+    else if(sn===activeStep) step.classList.add('active');
+  });
+  
+  lines.forEach((line,i)=>{
+    line.classList.toggle('filled',i+1<activeStep);
+  });
+}
+
+window.addEventListener('scroll',updateProgress,{passive:true});
+updateProgress();
+
+// Auto-update summary when form changes
+document.querySelectorAll('input[type="radio"], input[type="checkbox"], select, input[type="text"], input[type="tel"], input[type="email"], textarea').forEach(el=>{
+  el.addEventListener('change',()=>{
+    const c=document.getElementById('summaryContent');
+    if(!c.classList.contains('hidden')) buildSummary();
+  });
+  if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){
+    el.addEventListener('input',()=>{
+      const c=document.getElementById('summaryContent');
+      if(!c.classList.contains('hidden')) buildSummary();
+    });
+  }
+});
+</script>
+</body>
+</html>
