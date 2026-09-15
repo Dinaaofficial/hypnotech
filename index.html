@@ -1,52 +1,63 @@
 <!DOCTYPE html>
-<html lang="si">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hypnotec — පරිගණක, උපාංග සහ CCTV</title>
+<title>Hypnotec — Computers, Accessories &amp; CCTV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+Sinhala:wght@400;500;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#F5F3FA;
-  --card:#FFFFFF;
-  --ink:#221C3C;
-  --ink-soft:#5A5279;
-  --violet:#4F2BD9;
-  --violet-soft:#EBE6FB;
-  --teal:#00A98F;
-  --alert:#E0574C;
-  --line:#DFD9EC;
-  --radius:14px;
-  --shell:1180px;
+  --paper:#F5F3FA; --card:#FFFFFF; --ink:#221C3C; --ink-soft:#5A5279;
+  --violet:#4F2BD9; --violet-soft:#EBE6FB; --teal:#00A98F; --alert:#E0574C;
+  --line:#DFD9EC; --radius:14px; --shell:1180px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;background:var(--paper);color:var(--ink);
-  font-family:"Noto Sans Sinhala","Sora",system-ui,sans-serif;
-  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;
+  font-family:"IBM Plex Sans","Noto Sans Sinhala",system-ui,sans-serif;
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
 }
-h1,h2,h3,.num{font-family:"Sora","Noto Sans Sinhala",sans-serif;line-height:1.25;letter-spacing:-0.01em}
+html[lang="si"] body{font-family:"Noto Sans Sinhala","IBM Plex Sans",system-ui,sans-serif;line-height:1.75}
+h1,h2,h3{font-family:"Sora","Noto Sans Sinhala",sans-serif;line-height:1.24;letter-spacing:-0.012em}
 h2{font-size:clamp(1.5rem,3.4vw,2.1rem);margin:0 0 .3rem}
-p{margin:0 0 1rem;max-width:68ch}
+p{margin:0 0 1rem;max-width:66ch}
 a{color:var(--violet)}
 img{max-width:100%;display:block}
 button,input,select,textarea{font:inherit;color:inherit}
 .shell{max-width:var(--shell);margin:0 auto;padding:0 20px}
 .section{padding:70px 0}
 .section + .section{border-top:1px solid var(--line)}
-.lead{color:var(--ink-soft);max-width:60ch}
+.lead{color:var(--ink-soft);max-width:58ch}
+
+/* ---------- language gate ---------- */
+#langGate{position:fixed;inset:0;z-index:300;background:var(--ink);color:#fff;
+  display:none;place-items:center;text-align:center;padding:24px;overflow:hidden}
+#langGate.show{display:grid}
+#langGate .rings{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:760px;height:760px;opacity:.28;pointer-events:none}
+#langGate .rings circle{fill:none;stroke:#7C5CF0;stroke-width:1.2}
+.gate-inner{position:relative;max-width:440px}
+.gate-inner .mark{width:56px;height:56px;margin:0 auto 20px}
+.gate-inner h1{font-size:1.6rem;margin:0 0 4px}
+.gate-inner .sub{color:#A99FD4;font-size:1.05rem;margin-bottom:28px}
+.gate-btns{display:grid;gap:12px}
+.gate-btns button{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.28);color:#fff;
+  border-radius:14px;padding:18px;font-size:1.15rem;font-weight:600;cursor:pointer;transition:background .15s ease,border-color .15s ease}
+.gate-btns button:hover{background:var(--violet);border-color:var(--violet)}
+.gate-note{color:#8B81BC;font-size:.82rem;margin-top:22px}
 
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:60;background:rgba(245,243,250,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;gap:18px;height:66px}
+.bar{display:flex;align-items:center;gap:14px;height:66px}
 .brand{display:flex;align-items:center;gap:10px;font-family:"Sora",sans-serif;font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--ink)}
 .brand svg{width:28px;height:28px;flex:none}
 nav.main{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
-nav.main a{padding:7px 12px;border-radius:9px;text-decoration:none;color:var(--ink);font-size:.93rem}
+nav.main a{padding:7px 11px;border-radius:9px;text-decoration:none;color:var(--ink);font-size:.92rem}
 nav.main a:hover{background:var(--violet-soft)}
+#langToggle{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 13px;cursor:pointer;font-size:.86rem;font-weight:600;white-space:nowrap}
+#langToggle:hover{border-color:var(--violet);color:var(--violet)}
 .cart-btn{display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:0;border-radius:11px;padding:9px 15px;cursor:pointer;font-weight:600;font-size:.9rem}
 .cart-btn .count{background:var(--violet);border-radius:20px;min-width:22px;padding:0 6px;text-align:center;font-size:.8rem}
 .menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:9px;padding:7px 11px;cursor:pointer}
@@ -56,11 +67,11 @@ nav.main a:hover{background:var(--violet-soft)}
 .hero .rings{position:absolute;right:-140px;top:50%;transform:translateY(-50%);width:640px;height:640px;opacity:.38;pointer-events:none}
 .hero .rings circle{fill:none;stroke:#7C5CF0;stroke-width:1.2}
 .hero-inner{position:relative;max-width:640px}
-.hero h1{font-size:clamp(2.1rem,6vw,3.4rem);margin:0 0 14px}
+.hero h1{font-size:clamp(2rem,5.6vw,3.3rem);margin:0 0 14px}
 .hero p{color:#CFC7EC}
 .hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 .trust{display:flex;gap:26px;flex-wrap:wrap;margin-top:38px;padding-top:24px;border-top:1px solid rgba(255,255,255,.16)}
-.trust div span{display:block;font-family:"Sora",sans-serif;font-size:1.3rem;font-weight:700}
+.trust div span{display:block;font-family:"Sora","Noto Sans Sinhala",sans-serif;font-size:1.25rem;font-weight:700}
 .trust div small{color:#A99FD4}
 
 /* ---------- buttons ---------- */
@@ -68,7 +79,6 @@ nav.main a:hover{background:var(--violet-soft)}
 .btn:active{transform:translateY(1px)}
 .btn-primary{background:var(--violet);color:#fff}
 .btn-primary:hover{background:#3F1FC4}
-.btn-dark{background:var(--ink);color:#fff}
 .btn-ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
 .btn-line{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
 .btn-line:hover{border-color:var(--violet);color:var(--violet)}
@@ -91,15 +101,15 @@ nav.main a:hover{background:var(--violet-soft)}
 .pcard .thumb img{width:100%;height:100%;object-fit:cover}
 .pcard .body{padding:14px 15px 16px;display:flex;flex-direction:column;gap:7px;flex:1}
 .pcard h3{margin:0;font-size:1rem}
-.pcard .desc{color:var(--ink-soft);font-size:.87rem;line-height:1.55;margin:0;
+.pcard .desc{color:var(--ink-soft);font-size:.87rem;line-height:1.5;margin:0;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .price{font-family:"Sora",sans-serif;font-weight:700;font-size:1.12rem}
 .price s{color:var(--ink-soft);font-weight:400;font-size:.85rem;margin-left:7px}
 .stock{font-size:.82rem;font-weight:600;display:inline-flex;align-items:center;gap:6px}
-.stock::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.stock::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}
 .in{color:var(--teal)} .low{color:#C98A00} .out{color:var(--alert)}
 .pcard .row{display:flex;gap:8px;margin-top:auto;padding-top:10px}
-.pcard .row .btn{flex:1;padding:10px 8px;font-size:.86rem}
+.pcard .row .btn{flex:1;padding:10px 8px;font-size:.85rem}
 .tag{position:absolute;top:10px;left:10px;background:var(--ink);color:#fff;font-size:.72rem;padding:4px 9px;border-radius:6px;font-weight:600}
 .soldout-veil{position:absolute;inset:0;background:rgba(34,28,60,.55);display:grid;place-items:center;color:#fff;font-weight:700}
 
@@ -121,7 +131,7 @@ nav.main a:hover{background:var(--violet-soft)}
 .detail .gal img{width:100%;height:100%;object-fit:cover}
 .spec{width:100%;border-collapse:collapse;margin:14px 0 18px;font-size:.9rem}
 .spec td{padding:8px 0;border-bottom:1px solid var(--line);vertical-align:top}
-.spec td:first-child{color:var(--ink-soft);width:42%}
+.spec td:first-child{color:var(--ink-soft);width:44%}
 .qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
 .qty button{width:38px;height:40px;border:0;background:none;font-size:1.15rem;cursor:pointer}
 .qty span{min-width:40px;text-align:center;font-weight:600}
@@ -138,8 +148,7 @@ nav.main a:hover{background:var(--violet-soft)}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:.87rem;font-weight:600;margin-bottom:5px}
 .field input,.field select,.field textarea{
-  width:100%;background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 13px;outline:0
-}
+  width:100%;background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 13px;outline:0}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--violet);box-shadow:0 0 0 3px var(--violet-soft)}
 .field textarea{min-height:95px;resize:vertical}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
@@ -157,15 +166,19 @@ nav.main a:hover{background:var(--violet-soft)}
 .svc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px}
 .svc h3{margin:0 0 6px;font-size:1.02rem}
 .svc p{font-size:.9rem;color:var(--ink-soft);margin:0 0 10px}
-.svc .from{font-family:"Sora",sans-serif;font-weight:700;color:var(--violet)}
+.svc .from{font-family:"Sora","Noto Sans Sinhala",sans-serif;font-weight:700;color:var(--violet)}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
 .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
 .cctv{background:var(--ink);color:#fff}
 .cctv .panel{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18)}
-.cctv .lead,.cctv .svc p{color:#BCB3E0}
+.cctv .lead,.cctv .svc p,.cctv ol{color:#BCB3E0}
 .cctv .svc{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18)}
+.cctv .svc h3{color:#fff}
 .cctv .svc .from{color:#A78BFA}
 .cctv .field input,.cctv .field select,.cctv .field textarea{background:rgba(255,255,255,.95);color:var(--ink);border-color:transparent}
+.cctv .spec{color:#CFC7EC}
+.cctv .spec td{border-color:rgba(255,255,255,.16)}
+.cctv .spec td:first-child{color:#9C92C9}
 
 /* ---------- reviews ---------- */
 .rev-head{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:24px}
@@ -179,9 +192,9 @@ nav.main a:hover{background:var(--violet-soft)}
 .rev time{font-size:.78rem;color:var(--ink-soft)}
 
 /* ---------- footer ---------- */
-footer{background:var(--ink);color:#CFC7EC;padding:52px 0 26px;margin-top:0}
+footer{background:var(--ink);color:#CFC7EC;padding:52px 0 26px}
 .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}
-footer h4{color:#fff;margin:0 0 12px;font-family:"Sora",sans-serif;font-size:.98rem}
+footer h4{color:#fff;margin:0 0 12px;font-family:"Sora","Noto Sans Sinhala",sans-serif;font-size:.98rem}
 footer a{color:#CFC7EC;text-decoration:none;display:block;padding:3px 0;font-size:.92rem}
 footer a:hover{color:#fff}
 .paylogos{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
@@ -198,7 +211,7 @@ footer a:hover{color:#fff}
 .tabpane{display:none}.tabpane.on{display:block}
 
 /* ---------- toast ---------- */
-#toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(120%);
+#toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(140%);
   background:var(--ink);color:#fff;padding:13px 20px;border-radius:12px;z-index:200;transition:transform .25s ease;font-size:.9rem;max-width:90vw}
 #toast.show{transform:translateX(-50%) translateY(0)}
 
@@ -207,18 +220,40 @@ footer a:hover{color:#fff}
 
 :focus-visible{outline:3px solid var(--violet);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-@media (max-width:860px){
+@media (max-width:900px){
   .detail,.split,.fgrid{grid-template-columns:1fr}
   nav.main{display:none;position:absolute;top:66px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 20px;flex-direction:column}
   nav.main.open{display:flex}
   .menu-toggle{display:block;margin-left:auto}
-  .cart-btn{order:3}
   .hero .rings{opacity:.2;right:-260px}
   .two{grid-template-columns:1fr}
+  #langGate .rings{width:520px;height:520px}
 }
 </style>
 </head>
 <body>
+
+<!-- ============ ONE-TIME LANGUAGE GATE ============ -->
+<div id="langGate" role="dialog" aria-modal="true" aria-label="Choose language">
+  <svg class="rings" viewBox="0 0 400 400" aria-hidden="true">
+    <circle cx="200" cy="200" r="40"/><circle cx="200" cy="200" r="70"/><circle cx="200" cy="200" r="100"/>
+    <circle cx="200" cy="200" r="130"/><circle cx="200" cy="200" r="160"/><circle cx="200" cy="200" r="190"/>
+  </svg>
+  <div class="gate-inner">
+    <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="20" cy="20" r="18" fill="none" stroke="#7C5CF0" stroke-width="2"/>
+      <circle cx="20" cy="20" r="12" fill="none" stroke="#7C5CF0" stroke-width="2"/>
+      <circle cx="20" cy="20" r="6" fill="#7C5CF0"/>
+    </svg>
+    <h1>Hypnotec</h1>
+    <div class="sub">භාෂාව තෝරන්න · Choose your language</div>
+    <div class="gate-btns">
+      <button data-lang="si">සිංහල</button>
+      <button data-lang="en">English</button>
+    </div>
+    <div class="gate-note">ඔබට පසුව මෙනුවෙන් භාෂාව මාරු කරගන්න පුළුවන් · You can switch anytime from the menu</div>
+  </div>
+</div>
 
 <header>
   <div class="shell bar">
@@ -230,16 +265,17 @@ footer a:hover{color:#fff}
       </svg>
       Hypnotec
     </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="මෙනුව">☰</button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
     <nav class="main" id="mainNav">
-      <a href="#shop">බඩු</a>
-      <a href="#services">පරිගණක සර්විස්</a>
-      <a href="#cctv">CCTV</a>
-      <a href="#reviews">රිවීව්</a>
-      <a href="#contact">සම්බන්ධ වන්න</a>
-      <a href="#" id="adminLink">ඇඩ්මින්</a>
+      <a href="#shop" data-i18n="nav.shop"></a>
+      <a href="#services" data-i18n="nav.services"></a>
+      <a href="#cctv" data-i18n="nav.cctv"></a>
+      <a href="#reviews" data-i18n="nav.reviews"></a>
+      <a href="#contact" data-i18n="nav.contact"></a>
+      <a href="#" id="adminLink" data-i18n="nav.admin"></a>
     </nav>
-    <button class="cart-btn" id="cartBtn">කාට් <span class="count" id="cartCount">0</span></button>
+    <button id="langToggle" type="button"></button>
+    <button class="cart-btn" id="cartBtn"><span data-i18n="nav.cart"></span> <span class="count" id="cartCount">0</span></button>
   </div>
 </header>
 
@@ -249,16 +285,16 @@ footer a:hover{color:#fff}
     <circle cx="200" cy="200" r="130"/><circle cx="200" cy="200" r="160"/><circle cx="200" cy="200" r="190"/>
   </svg>
   <div class="shell hero-inner">
-    <h1>පරිගණක උපාංග, CCTV සහ ගෙදරටම එන සර්විස්</h1>
-    <p>අලුත් හා භාවිත කළ පරිගණක උපාංග ඔන්ලයින් ඕඩර් කරන්න. පරිගණක අළුත්වැඩියාවට සහ CCTV සවිකිරීමට අපේ කණ්ඩායම ඔබේ ස්ථානයටම එනවා.</p>
+    <h1 data-i18n="hero.h1"></h1>
+    <p data-i18n="hero.p"></p>
     <div class="actions">
-      <a class="btn btn-primary" href="#shop">බඩු බලන්න</a>
-      <a class="btn btn-ghost" href="#services">සර්විස් එකක් වෙන් කරන්න</a>
+      <a class="btn btn-primary" href="#shop" data-i18n="hero.cta1"></a>
+      <a class="btn btn-ghost" href="#services" data-i18n="hero.cta2"></a>
     </div>
     <div class="trust">
-      <div><span id="statProducts">—</span><small>විකිණීමට ඇති අයිතම</small></div>
-      <div><span>දිවයින පුරා</span><small>ඩිලිවරි සහ ඔන්-සයිට් සර්විස්</small></div>
-      <div><span>COD</span><small>බඩුව ලැබුණාම මුදල් ගෙවන්න</small></div>
+      <div><span id="statProducts">—</span><small data-i18n="hero.s1"></small></div>
+      <div><span data-i18n="hero.s2t"></span><small data-i18n="hero.s2"></small></div>
+      <div><span data-i18n="hero.s3t"></span><small data-i18n="hero.s3"></small></div>
     </div>
   </div>
 </section>
@@ -266,71 +302,47 @@ footer a:hover{color:#fff}
 <!-- ================= SHOP ================= -->
 <section class="section" id="shop">
   <div class="shell">
-    <h2>අපේ බඩු</h2>
-    <p class="lead">බඩුවක් මත ක්ලික් කළාම සම්පූර්ණ විස්තර, ස්පෙසිෆිකේශන් සහ ස්ටොක් තත්ත්වය බලාගන්න පුළුවන්.</p>
-
+    <h2 data-i18n="shop.h2"></h2>
+    <p class="lead" data-i18n="shop.lead"></p>
     <div class="shop-top">
       <div class="chips" id="catChips"></div>
-      <label class="search">
-        🔍 <input type="search" id="searchInput" placeholder="බඩුවක් හොයන්න…" aria-label="බඩු සෙවීම">
-      </label>
+      <label class="search">🔍 <input type="search" id="searchInput" data-i18n-ph="shop.searchPh" data-i18n-aria="shop.searchPh"></label>
     </div>
-
     <div class="grid" id="productGrid"></div>
-    <div class="empty" id="noResults" hidden>ඔබ හෙව්ව දේ හමු වුණේ නැහැ. වෙන වචනයකින් හොයලා බලන්න.</div>
+    <div class="empty" id="noResults" hidden data-i18n="shop.noResults"></div>
   </div>
 </section>
 
 <!-- ================= COMPUTER SERVICE ================= -->
 <section class="section" id="services">
   <div class="shell">
-    <h2>පරිගණක සර්විස් සහ අළුත්වැඩියා</h2>
-    <p class="lead">ඔබේ නිවසට හෝ කාර්යාලයට අපි පැමිණෙනවා. පහත ෆෝම් එක පුරවන්න, අපි පැයක් ඇතුළත ඔබට කතා කරලා වෙලාව තහවුරු කරගන්නම්.</p>
-
+    <h2 data-i18n="svc.h2"></h2>
+    <p class="lead" data-i18n="svc.lead"></p>
     <div class="svc-grid" id="svcGrid"></div>
-
     <div class="split">
       <div class="panel">
-        <h3 style="margin-top:0">සර්විස් එකක් වෙන් කරන්න</h3>
+        <h3 style="margin-top:0" data-i18n="svc.formTitle"></h3>
         <form id="serviceForm">
           <div class="two">
-            <div class="field"><label for="sv-name">නම</label><input id="sv-name" required></div>
-            <div class="field"><label for="sv-phone">දුරකථන අංකය</label><input id="sv-phone" type="tel" required placeholder="07X XXX XXXX"></div>
+            <div class="field"><label for="sv-name" data-i18n="f.name"></label><input id="sv-name" required></div>
+            <div class="field"><label for="sv-phone" data-i18n="f.phone"></label><input id="sv-phone" type="tel" required placeholder="07X XXX XXXX"></div>
           </div>
-          <div class="field"><label for="sv-type">සර්විස් වර්ගය</label>
-            <select id="sv-type" required>
-              <option value="">තෝරන්න…</option>
-              <option>ඩෙස්ක්ටොප් අළුත්වැඩියාව</option>
-              <option>ලැප්ටොප් අළුත්වැඩියාව</option>
-              <option>වයිරස් ඉවත් කිරීම / මෘදුකාංග</option>
-              <option>Windows / OS ඉන්ස්ටෝල් කිරීම</option>
-              <option>හාඩ්වෙයාර් අප්ග්‍රේඩ් (RAM / SSD)</option>
-              <option>ජාලකරණය සහ WiFi</option>
-              <option>දත්ත ගලවා ගැනීම (Data recovery)</option>
-              <option>වෙනත්</option>
-            </select>
-          </div>
-          <div class="field"><label for="sv-addr">ලිපිනය (අපි එන ස්ථානය)</label><input id="sv-addr" required></div>
+          <div class="field"><label for="sv-type" data-i18n="svc.typeLabel"></label>
+            <select id="sv-type" required data-i18n-options="svc.types"></select></div>
+          <div class="field"><label for="sv-addr" data-i18n="svc.addrLabel"></label><input id="sv-addr" required></div>
           <div class="two">
-            <div class="field"><label for="sv-date">කැමති දිනය</label><input id="sv-date" type="date"></div>
-            <div class="field"><label for="sv-time">කැමති වේලාව</label>
-              <select id="sv-time"><option>උදේ (8am–12pm)</option><option>දවල් (12pm–4pm)</option><option>සවස (4pm–7pm)</option></select>
-            </div>
+            <div class="field"><label for="sv-date" data-i18n="svc.dateLabel"></label><input id="sv-date" type="date"></div>
+            <div class="field"><label for="sv-time" data-i18n="svc.timeLabel"></label>
+              <select id="sv-time" data-i18n-options="svc.times"></select></div>
           </div>
-          <div class="field"><label for="sv-issue">ප්‍රශ්නය කෙටියෙන් විස්තර කරන්න</label><textarea id="sv-issue" placeholder="උදා: ලැප්ටොප් එක ඔන් වෙනවා, නමුත් ස්ක්‍රීන් එක කළුයි."></textarea></div>
-          <button class="btn btn-primary block" type="submit">සර්විස් ඉල්ලීම යවන්න</button>
+          <div class="field"><label for="sv-issue" data-i18n="svc.issueLabel"></label><textarea id="sv-issue" data-i18n-ph="svc.issuePh"></textarea></div>
+          <button class="btn btn-primary block" type="submit" data-i18n="svc.submit"></button>
         </form>
       </div>
       <div class="panel">
-        <h3 style="margin-top:0">වැඩේ වෙන්නේ මෙහෙමයි</h3>
-        <ol style="padding-left:20px;color:var(--ink-soft)">
-          <li>ඔබ ෆෝම් එක පුරවනවා හෝ අපට කතා කරනවා.</li>
-          <li>අපි දුරකථනයෙන් ප්‍රශ්නය තේරුම් අරගෙන වෙලාවක් දෙනවා.</li>
-          <li>ටෙක්නීෂන් කෙනෙක් ඔබේ ස්ථානයට ඇවිත් පරීක්ෂා කරනවා.</li>
-          <li>වැඩේ පටන් ගන්න කලින් මිල ගණන් කියලා ඔබේ අනුමැතිය ගන්නවා.</li>
-          <li>අළුත්වැඩියාවෙන් පස්සේ මාස 3ක වගකීමක් ලැබෙනවා.</li>
-        </ol>
-        <p class="note">ඉන්ස්පෙක්ෂන් ගාස්තුව රු. 1,500යි. අළුත්වැඩියාව අපෙන් කරගත්තොත් එය අයකරන්නේ නැහැ.</p>
+        <h3 style="margin-top:0" data-i18n="svc.howTitle"></h3>
+        <ol style="padding-left:20px;color:var(--ink-soft)" id="svcSteps"></ol>
+        <p class="note" data-i18n="svc.fee"></p>
       </div>
     </div>
   </div>
@@ -339,48 +351,32 @@ footer a:hover{color:#fff}
 <!-- ================= CCTV ================= -->
 <section class="section cctv" id="cctv">
   <div class="shell">
-    <h2 style="color:#fff">CCTV සවිකිරීම සහ අළුත්වැඩියාව</h2>
-    <p class="lead">අලුතින් කැමරා පද්ධතියක් සවිකිරීමේ සිට පරණ පද්ධතියක් හදලා දීම දක්වා සියල්ල අපි කරනවා. ඔබේ දුරකථනයෙන් ලොව ඕනෑම තැනකින් බලාගන්න පුළුවන් විදිහට සකස් කරලා දෙනවා.</p>
-
+    <h2 style="color:#fff" data-i18n="cctv.h2"></h2>
+    <p class="lead" data-i18n="cctv.lead"></p>
     <div class="svc-grid" id="cctvGrid"></div>
-
     <div class="split">
       <div class="panel">
-        <h3 style="margin-top:0">නොමිලේ ස්ථාන පරීක්ෂාවක් ඉල්ලන්න</h3>
+        <h3 style="margin-top:0" data-i18n="cctv.formTitle"></h3>
         <form id="cctvForm">
           <div class="two">
-            <div class="field"><label for="cc-name">නම</label><input id="cc-name" required></div>
-            <div class="field"><label for="cc-phone">දුරකථන අංකය</label><input id="cc-phone" type="tel" required></div>
+            <div class="field"><label for="cc-name" data-i18n="f.name"></label><input id="cc-name" required></div>
+            <div class="field"><label for="cc-phone" data-i18n="f.phone"></label><input id="cc-phone" type="tel" required></div>
           </div>
           <div class="two">
-            <div class="field"><label for="cc-job">ඕන වැඩේ</label>
-              <select id="cc-job" required>
-                <option>අලුතින් සවිකිරීම</option>
-                <option>පවතින පද්ධතිය අළුත්වැඩියාව</option>
-                <option>කැමරා ගණන වැඩි කිරීම</option>
-                <option>DVR / NVR ප්‍රශ්නයක්</option>
-                <option>මොබයිල් වීවින් සෙටප් කිරීම</option>
-              </select>
-            </div>
-            <div class="field"><label for="cc-count">කැමරා ගණන</label>
-              <select id="cc-count"><option>2</option><option>4</option><option>6</option><option>8</option><option>8ට වඩා</option><option>විශ්වාස නැහැ</option></select>
-            </div>
+            <div class="field"><label for="cc-job" data-i18n="cctv.jobLabel"></label>
+              <select id="cc-job" required data-i18n-options="cctv.jobs"></select></div>
+            <div class="field"><label for="cc-count" data-i18n="cctv.countLabel"></label>
+              <select id="cc-count" data-i18n-options="cctv.counts"></select></div>
           </div>
-          <div class="field"><label for="cc-place">ස්ථානය සහ ලිපිනය</label><input id="cc-place" required placeholder="උදා: දෙමහල් නිවසක්, දෙහිවල"></div>
-          <div class="field"><label for="cc-note">වෙනත් විස්තර</label><textarea id="cc-note"></textarea></div>
-          <button class="btn btn-primary block" type="submit">ඉල්ලීම යවන්න</button>
+          <div class="field"><label for="cc-place" data-i18n="cctv.placeLabel"></label><input id="cc-place" required data-i18n-ph="cctv.placePh"></div>
+          <div class="field"><label for="cc-note" data-i18n="cctv.noteLabel"></label><textarea id="cc-note"></textarea></div>
+          <button class="btn btn-primary block" type="submit" data-i18n="cctv.submit"></button>
         </form>
       </div>
       <div class="panel">
-        <h3 style="margin-top:0">අපි සවිකරන දේ</h3>
-        <table class="spec" style="color:#CFC7EC">
-          <tr><td style="color:#9C92C9">කැමරා</td><td>2MP / 5MP / 8MP — Dome, Bullet, PTZ</td></tr>
-          <tr><td style="color:#9C92C9">වර්ග</td><td>Analog (HD), IP කැමරා, WiFi කැමරා</td></tr>
-          <tr><td style="color:#9C92C9">රෙකෝඩින්</td><td>DVR / NVR, 1TB–8TB හාඩ් ඩිස්ක්</td></tr>
-          <tr><td style="color:#9C92C9">වීවින්</td><td>ෆෝන් ඇප් එකෙන් ලයිව් සහ පරණ රෙකෝඩින්</td></tr>
-          <tr><td style="color:#9C92C9">වගකීම</td><td>සවිකිරීමට වසර 1ක්, උපකරණවලට සමාගමේ වගකීම</td></tr>
-        </table>
-        <p class="note" style="color:#A99FD4">පැකේජ මිල කැමරා ගණන, කේබල් දිග සහ ස්ථානය අනුව වෙනස් වෙනවා. ස්ථාන පරීක්ෂාව නොමිලේ.</p>
+        <h3 style="margin-top:0" data-i18n="cctv.whatTitle"></h3>
+        <table class="spec" id="cctvSpec"></table>
+        <p class="note" style="color:#A99FD4" data-i18n="cctv.note"></p>
       </div>
     </div>
   </div>
@@ -389,18 +385,16 @@ footer a:hover{color:#fff}
 <!-- ================= REVIEWS ================= -->
 <section class="section" id="reviews">
   <div class="shell">
-    <h2>කස්ටමර්ලා කියන දේ</h2>
-    <p class="lead">මේ රිවීව් අපේ Google Business Profile එකෙන් එන ඒවා.</p>
-
+    <h2 data-i18n="rev.h2"></h2>
+    <p class="lead" data-i18n="rev.lead"></p>
     <div class="rev-head">
       <div>
         <div class="score" id="revScore">—</div>
         <div class="stars" id="revStars"></div>
-        <div class="note" id="revCount">Google රිවීව්</div>
+        <div class="note" id="revCount"></div>
       </div>
-      <a class="btn btn-line" id="writeReview" href="#" target="_blank" rel="noopener">Google එකේ රිවීව් එකක් දාන්න</a>
+      <a class="btn btn-line" id="writeReview" href="#" target="_blank" rel="noopener" data-i18n="rev.write"></a>
     </div>
-
     <div class="rgrid" id="revGrid"></div>
     <p class="note" id="revSource" style="margin-top:18px"></p>
   </div>
@@ -412,58 +406,53 @@ footer a:hover{color:#fff}
     <div class="fgrid">
       <div>
         <h4>Hypnotec</h4>
-        <p style="font-size:.92rem">පරිගණක උපාංග, CCTV සවිකිරීම සහ ඔන්-සයිට් තාක්ෂණික සේවා.</p>
+        <p style="font-size:.92rem" data-i18n="ft.about"></p>
         <p style="font-size:.92rem">📞 <a href="tel:+94770000000" style="display:inline">077 000 0000</a><br>
         ✉️ <a href="mailto:hello@hypnotec.lk" style="display:inline">hello@hypnotec.lk</a><br>
-        📍 ගාලු පාර, දෙහිවල</p>
+        📍 <span data-i18n="ft.addr"></span></p>
       </div>
       <div>
-        <h4>සේවා</h4>
-        <a href="#shop">බඩු ඕඩර් කිරීම</a>
-        <a href="#services">පරිගණක අළුත්වැඩියාව</a>
-        <a href="#cctv">CCTV සවිකිරීම</a>
-        <a href="#cctv">CCTV අළුත්වැඩියාව</a>
+        <h4 data-i18n="ft.servicesTitle"></h4>
+        <a href="#shop" data-i18n="ft.l1"></a>
+        <a href="#services" data-i18n="ft.l2"></a>
+        <a href="#cctv" data-i18n="ft.l3"></a>
+        <a href="#cctv" data-i18n="ft.l4"></a>
       </div>
       <div>
-        <h4>ගෙවීම් ක්‍රම</h4>
+        <h4 data-i18n="ft.payTitle"></h4>
         <div class="paylogos">
-          <span>Cash on Delivery</span><span>බැංකු ට්‍රාන්ස්ෆර්</span><span>Visa</span><span>Mastercard</span>
+          <span data-i18n="pay.cod"></span><span data-i18n="pay.bank"></span><span>Visa</span><span>Mastercard</span>
         </div>
-        <p style="font-size:.9rem;margin-top:14px">බඩු ලැබෙන කාලය: කොළඹ තුළ දින 1–2, අනෙක් ප්‍රදේශවලට දින 2–4.</p>
+        <p style="font-size:.9rem;margin-top:14px" data-i18n="ft.delivery"></p>
       </div>
     </div>
     <div class="copy">
-      <span>© <span id="year"></span> Hypnotec. සියලු හිමිකම් ඇවිරිණි.</span>
-      <span>නැවත භාර දීමේ ප්‍රතිපත්තිය · පෞද්ගලිකත්ව ප්‍රතිපත්තිය</span>
+      <span>© <span id="year"></span> Hypnotec. <span data-i18n="ft.rights"></span></span>
+      <span data-i18n="ft.policies"></span>
     </div>
   </div>
 </footer>
 
-<!-- ================= OVERLAY + MODALS ================= -->
 <div class="overlay" id="overlay"></div>
 
-<!-- product detail -->
 <div class="modal modal-center" id="productModal" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
-  <div class="modal-head"><h3 id="pmTitle">බඩුවේ විස්තර</h3><button class="x" data-close aria-label="වහන්න">×</button></div>
+  <div class="modal-head"><h3 id="pmTitle"></h3><button class="x" data-close aria-label="Close">×</button></div>
   <div class="modal-body" id="pmBody"></div>
 </div>
 
-<!-- cart drawer -->
 <div class="modal drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-  <div class="modal-head"><h3 id="cartTitle">ඔබේ කාට් එක</h3><button class="x" data-close aria-label="වහන්න">×</button></div>
+  <div class="modal-head"><h3 id="cartTitle" data-i18n="cart.title"></h3><button class="x" data-close aria-label="Close">×</button></div>
   <div class="modal-body" id="cartBody"></div>
   <div class="modal-foot" id="cartFoot"></div>
 </div>
 
-<!-- checkout -->
 <div class="modal modal-center" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="coTitle">
-  <div class="modal-head"><h3 id="coTitle">ඕඩරය සම්පූර්ණ කරන්න</h3><button class="x" data-close aria-label="වහන්න">×</button></div>
+  <div class="modal-head"><h3 id="coTitle"></h3><button class="x" data-close aria-label="Close">×</button></div>
   <div class="modal-body" id="checkoutBody"></div>
 </div>
 
-<!-- admin -->
 <div class="modal modal-center" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adTitle">
-  <div class="modal-head"><h3 id="adTitle">ඇඩ්මින් පැනලය</h3><button class="x" data-close aria-label="වහන්න">×</button></div>
+  <div class="modal-head"><h3 id="adTitle" data-i18n="ad.title"></h3><button class="x" data-close aria-label="Close">×</button></div>
   <div class="modal-body" id="adminBody"></div>
 </div>
 
@@ -471,102 +460,367 @@ footer a:hover{color:#fff}
 
 <script>
 /* =======================================================================
-   HYPNOTEC — සැකසුම් (CONFIG). මෙතන විතරක් වෙනස් කරලා ඔබේ විස්තර දාන්න.
+   HYPNOTEC — CONFIG / සැකසුම්.  Change your details here only.
    ======================================================================= */
 const CONFIG = {
-  shopName: "Hypnotec",
-  currency: "රු.",
-  whatsapp: "94770000000",          // ඕඩර් එන WhatsApp අංකය (රට කේතය සමග, + නැතුව)
-  adminPassword: "hypno2026",       // ලොග් වුණාම මේක වෙනස් කරන්න!
+  whatsapp: "94770000000",     // WhatsApp number orders go to (country code, no +)
+  adminPassword: "hypno2026",  // change this
   freeDeliveryAbove: 25000,
   deliveryFee: 450,
-
-  bank: {
-    bankName: "Commercial Bank",
-    branch: "දෙහිවල",
-    accountName: "Hypnotec (Pvt) Ltd",
-    accountNumber: "8001234567"
-  },
-
-  // ----- Google Business Profile රිවීව් -----
-  // placeId: Google Maps එකේ ඔබේ ව්‍යාපාරයේ Place ID.
-  // apiKey: Google Places API key එක (backend proxy එකක් හරහා යැවීම වඩාත් ආරක්ෂිතයි).
-  // හිස්ව තිබුණොත් පහත sampleReviews පෙන්වයි.
-  google: {
-    placeId: "",
-    apiKey: "",
-    writeReviewUrl: "https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID"
-  }
+  defaultLang: "si",           // used only if someone closes the gate without choosing
+  bank: { bankName:{en:"Commercial Bank", si:"Commercial Bank"}, branch:{en:"Dehiwala", si:"දෙහිවල"},
+          accountName:"Hypnotec (Pvt) Ltd", accountNumber:"8001234567" },
+  google: { placeId:"", apiKey:"", writeReviewUrl:"https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" }
 };
 
-/* ---------- ආරම්භක බඩු (ඇඩ්මින් පැනලයෙන් තවත් එකතු කරන්න) ---------- */
+/* ======================= TRANSLATIONS ======================= */
+const I18N = {
+en:{
+ "nav.shop":"Shop","nav.services":"Computer service","nav.cctv":"CCTV","nav.reviews":"Reviews",
+ "nav.contact":"Contact","nav.admin":"Admin","nav.cart":"Cart","lang.switch":"සිංහල",
+ "hero.h1":"Computer gear, CCTV, and a technician who comes to you",
+ "hero.p":"Order laptops, parts and accessories online. For repairs and CCTV installation, our team travels to your home or office.",
+ "hero.cta1":"Browse the shop","hero.cta2":"Book a service visit",
+ "hero.s1":"Items in stock","hero.s2t":"Island-wide","hero.s2":"Delivery and on-site service",
+ "hero.s3t":"Cash on delivery","hero.s3":"Pay when the item reaches you",
+ "shop.h2":"Shop","shop.lead":"Tap any item to see the full description, specifications and live stock count.",
+ "shop.searchPh":"Search products…","shop.noResults":"Nothing matched that search. Try a different word.",
+ "shop.all":"All","shop.sale":"Sale","shop.addCart":"Add to cart","shop.buyNow":"Buy now",
+ "stock.out":"Out of stock","stock.low":"Only {n} left","stock.in":"In stock ({n})",
+ "p.viewDetails":"view details","p.max":"That's all we have right now",
+ "p.freeDel":"Free delivery on orders above {x} · Cash on delivery, bank transfer and card accepted.",
+ "p.added":"{name} added to cart.","p.allInCart":"Your cart already holds every unit we have.",
+ "cart.title":"Your cart","cart.empty":"Your cart is empty.","cart.browse":"Browse the shop",
+ "cart.remove":"Remove","cart.subtotal":"Subtotal","cart.delivery":"Delivery","cart.free":"Free",
+ "cart.total":"Total","cart.checkout":"Checkout","cart.emptyToast":"Your cart is empty.",
+ "co.title":"Checkout","co.quick":"Quick order","co.delTitle":"Delivery details",
+ "f.fullName":"Full name","f.name":"Name","f.phone":"Phone number","f.addr":"Address","f.city":"City",
+ "f.email":"Email (optional)","co.payTitle":"Payment method",
+ "pay.cod":"Cash on delivery","pay.codSub":"Pay the courier when the item reaches you.",
+ "pay.bank":"Bank transfer","pay.bankSub":"Transfer the total and send us the receipt on WhatsApp.",
+ "pay.card":"Card (Visa / Mastercard)","pay.cardSub":"You'll be taken to a secure payment page.",
+ "co.accName":"Account name","co.accNo":"Account number",
+ "co.bankHint":"Send the receipt to {n} on WhatsApp once you've placed the order.",
+ "co.cardHint":"Card payments run through a secure gateway such as PayHere, Onepay or Stripe.",
+ "co.cardHint2":"No gateway is connected yet — see the setup notes.",
+ "co.noteLabel":"Order note (optional)","co.notePh":"e.g. Deliver after 5pm","co.place":"Place order",
+ "co.summary":"Order summary","co.done":"Order received","co.thanks":"Thanks, {name}!",
+ "co.ref":"Your order reference is {ref}. We'll call {phone} within 30 minutes to confirm.",
+ "co.payMethod":"Payment method","co.bankAcc":"Bank account","co.next":"Next step",
+ "co.cardNext":"We'll text you a secure payment link.","co.wa":"Confirm on WhatsApp","co.keep":"Keep shopping",
+ "svc.h2":"Computer service and repair",
+ "svc.lead":"We come to your home or office. Fill in the form and we'll call you within the hour to confirm a time slot.",
+ "svc.formTitle":"Book a service visit","svc.typeLabel":"What do you need?",
+ "svc.types":["Choose one…","Desktop repair","Laptop repair","Virus removal / software","Windows or OS installation","Hardware upgrade (RAM / SSD)","Networking and WiFi","Data recovery","Something else"],
+ "svc.addrLabel":"Address we should visit","svc.dateLabel":"Preferred date","svc.timeLabel":"Preferred time",
+ "svc.times":["Morning (8am–12pm)","Afternoon (12pm–4pm)","Evening (4pm–7pm)"],
+ "svc.issueLabel":"Describe the problem","svc.issuePh":"e.g. The laptop powers on but the screen stays black.",
+ "svc.submit":"Send service request","svc.howTitle":"How a visit works",
+ "svc.steps":["You send the form or call us.","We talk through the problem and agree a time.","A technician arrives and inspects the machine.","We quote the repair and wait for your approval before starting.","Every repair carries a 3-month warranty."],
+ "svc.fee":"Inspection fee is Rs. 1,500, waived if you go ahead with the repair.",
+ "svc.reqType":"Computer service",
+ "cctv.h2":"CCTV installation and repair",
+ "cctv.lead":"From a brand-new camera system to fixing one that stopped recording. We set everything up so you can watch the feed from your phone, anywhere.",
+ "cctv.formTitle":"Request a free site visit","cctv.jobLabel":"What do you need?",
+ "cctv.jobs":["New installation","Repair an existing system","Add more cameras","DVR / NVR problem","Set up mobile viewing"],
+ "cctv.countLabel":"Number of cameras","cctv.counts":["2","4","6","8","More than 8","Not sure yet"],
+ "cctv.placeLabel":"Property and address","cctv.placePh":"e.g. Two-storey house, Dehiwala",
+ "cctv.noteLabel":"Anything else we should know","cctv.submit":"Send request","cctv.whatTitle":"What we install",
+ "cctv.spec":[["Cameras","2MP / 5MP / 8MP — dome, bullet, PTZ"],["Types","Analog HD, IP cameras, WiFi cameras"],["Recording","DVR / NVR with 1TB–8TB storage"],["Viewing","Phone app for live feed and past recordings"],["Warranty","1 year on installation, manufacturer warranty on hardware"]],
+ "cctv.note":"Package prices depend on camera count, cable runs and the property. The site visit itself is free.",
+ "req.sent":"Request received. We'll call you shortly.","req.label":"request",
+ "rev.h2":"What customers say","rev.lead":"These reviews come straight from our Google Business Profile.",
+ "rev.write":"Write a review on Google","rev.count":"Based on {n} Google reviews",
+ "rev.sample":"These are placeholder reviews. Add your Place ID and API key under CONFIG.google to pull the real ones from Google.",
+ "rev.live":"Live from our Google Business Profile.",
+ "rev.fail":"Couldn't reach Google just now. Check the API key and Place ID in the config.",
+ "ft.about":"Computer hardware, CCTV installation and on-site technical service.",
+ "ft.addr":"Galle Road, Dehiwala","ft.servicesTitle":"Services","ft.l1":"Order products",
+ "ft.l2":"Computer repair","ft.l3":"CCTV installation","ft.l4":"CCTV repair",
+ "ft.payTitle":"Ways to pay","ft.delivery":"Delivery takes 1–2 days within Colombo and 2–4 days elsewhere.",
+ "ft.rights":"All rights reserved.","ft.policies":"Returns policy · Privacy policy",
+ "ad.title":"Admin panel","ad.pw":"Admin password","ad.signin":"Sign in",
+ "ad.pwNote":"The default password sits in CONFIG.adminPassword — change it.","ad.pwBad":"That password didn't match.",
+ "ad.tProd":"Products","ad.tOrd":"Orders","ad.tReq":"Service requests","ad.tExp":"Backup",
+ "ad.addTitle":"Add a product","ad.fName":"Name","ad.fPrice":"Price (Rs.)","ad.fOld":"Old price (if on sale)",
+ "ad.fCat":"Category","ad.fStock":"Stock count","ad.fImg":"Photo URL","ad.fImgPh":"Leave blank for an auto-generated placeholder",
+ "ad.fDesc":"Short description (shown on the card)","ad.fLong":"Full description (shown when opened)",
+ "ad.fSpecs":"Specs, one per line as name: value","ad.fSpecsPh":"Processor: Intel i5\nWarranty: 1 year",
+ "ad.add":"Add product","ad.current":"Current products","ad.price":"Price","ad.stock":"Stock","ad.del":"Delete",
+ "ad.added":"Product added.","ad.deleted":"Product deleted.","ad.stockUpd":"Stock updated.",
+ "ad.noOrders":"No orders yet.","ad.noReqs":"No requests yet.","ad.buyNow":"buy now",
+ "ad.expNote":"Copy this JSON and paste it into the PRODUCTS block in the file before uploading, so the catalogue ships with the site.",
+ "ad.copy":"Copy","ad.copied":"Copied.","ad.langNote":"Products you add here show the same text in both languages."
+},
+si:{
+ "nav.shop":"බඩු","nav.services":"පරිගණක සර්විස්","nav.cctv":"CCTV","nav.reviews":"රිවීව්",
+ "nav.contact":"සම්බන්ධ වන්න","nav.admin":"ඇඩ්මින්","nav.cart":"කාට්","lang.switch":"English",
+ "hero.h1":"පරිගණක උපාංග, CCTV සහ ගෙදරටම එන සර්විස්",
+ "hero.p":"පරිගණක උපාංග ඔන්ලයින් ඕඩර් කරන්න. අළුත්වැඩියාවට සහ CCTV සවිකිරීමට අපේ කණ්ඩායම ඔබේ ස්ථානයටම එනවා.",
+ "hero.cta1":"බඩු බලන්න","hero.cta2":"සර්විස් එකක් වෙන් කරන්න",
+ "hero.s1":"විකිණීමට ඇති අයිතම","hero.s2t":"දිවයින පුරා","hero.s2":"ඩිලිවරි සහ ඔන්-සයිට් සර්විස්",
+ "hero.s3t":"COD","hero.s3":"බඩුව ලැබුණාම මුදල් ගෙවන්න",
+ "shop.h2":"අපේ බඩු","shop.lead":"බඩුවක් මත ක්ලික් කළාම සම්පූර්ණ විස්තර, ස්පෙසිෆිකේශන් සහ ස්ටොක් තත්ත්වය බලාගන්න පුළුවන්.",
+ "shop.searchPh":"බඩුවක් හොයන්න…","shop.noResults":"ඔබ හෙව්ව දේ හමු වුණේ නැහැ. වෙන වචනයකින් හොයලා බලන්න.",
+ "shop.all":"සියල්ල","shop.sale":"වට්ටම්","shop.addCart":"කාට් එකට","shop.buyNow":"දැන්ම ගන්න",
+ "stock.out":"ස්ටොක් ඉවරයි","stock.low":"ඉතුරු {n}ක් පමණයි","stock.in":"ස්ටොක් තියෙනවා ({n})",
+ "p.viewDetails":"විස්තර බලන්න","p.max":"මේක තමයි ඇති උපරිමය",
+ "p.freeDel":"{x}ට වැඩි ඕඩර්වලට ඩිලිවරි නොමිලේ · COD, බැංකු ට්‍රාන්ස්ෆර් සහ කාඩ් පිළිගනිමු.",
+ "p.added":"{name} කාට් එකට එකතු කළා.","p.allInCart":"ස්ටොක් එකේ තියෙන ගණන දැනටමත් කාට් එකේ තියෙනවා.",
+ "cart.title":"ඔබේ කාට් එක","cart.empty":"කාට් එක හිස්.","cart.browse":"බඩු බලන්න",
+ "cart.remove":"ඉවත් කරන්න","cart.subtotal":"උප එකතුව","cart.delivery":"ඩිලිවරි","cart.free":"නොමිලේ",
+ "cart.total":"එකතුව","cart.checkout":"ඕඩරය සම්පූර්ණ කරන්න","cart.emptyToast":"කාට් එක හිස්.",
+ "co.title":"ඕඩරය සම්පූර්ණ කරන්න","co.quick":"ඉක්මන් ඕඩරය","co.delTitle":"ඩිලිවරි විස්තර",
+ "f.fullName":"සම්පූර්ණ නම","f.name":"නම","f.phone":"දුරකථන අංකය","f.addr":"ලිපිනය","f.city":"නගරය",
+ "f.email":"ඊමේල් (අවශ්‍ය නැත)","co.payTitle":"ගෙවීමේ ක්‍රමය",
+ "pay.cod":"බඩුව ලැබුණාම මුදලින්","pay.codSub":"බඩුව අතට ලැබෙන විට ඩිලිවරි කරන අයට ගෙවන්න.",
+ "pay.bank":"බැංකු ට්‍රාන්ස්ෆර්","pay.bankSub":"මුදල් යවා රිසිට් එක WhatsApp කරන්න.",
+ "pay.card":"කාඩ් පත (Visa / Mastercard)","pay.cardSub":"ආරක්ෂිත ගෙවීම් පිටුවකට යොමු කරනවා.",
+ "co.accName":"ගිණුමේ නම","co.accNo":"ගිණුම් අංකය",
+ "co.bankHint":"ඕඩරය දාපු පස්සේ රිසිට් එක {n} වෙත WhatsApp කරන්න.",
+ "co.cardHint":"කාඩ් ගෙවීම් PayHere, Onepay හෝ Stripe වගේ ආරක්ෂිත ගේට්වේ එකකින් සිදු වෙනවා.",
+ "co.cardHint2":"තාම ගේට්වේ එකක් සම්බන්ධ කරලා නැහැ — සෙටප් සටහන් බලන්න.",
+ "co.noteLabel":"වෙනත් සටහනක් (අවශ්‍ය නැත)","co.notePh":"උදා: සවස 5ට පස්සේ ගේන්න","co.place":"ඕඩරය තහවුරු කරන්න",
+ "co.summary":"ඔබේ ඕඩරය","co.done":"ඕඩරය ලැබුණා","co.thanks":"ස්තුතියි, {name}!",
+ "co.ref":"ඔබේ ඕඩර් අංකය {ref}. අපි විනාඩි 30ක් ඇතුළත {phone} අංකයට කතා කරලා තහවුරු කරගන්නම්.",
+ "co.payMethod":"ගෙවීමේ ක්‍රමය","co.bankAcc":"බැංකු ගිණුම","co.next":"මීළඟ පියවර",
+ "co.cardNext":"ගෙවීම් ලින්ක් එකක් SMS මගින් එවනවා.","co.wa":"WhatsApp එකෙන් තහවුරු කරන්න","co.keep":"තව බඩු බලන්න",
+ "svc.h2":"පරිගණක සර්විස් සහ අළුත්වැඩියා",
+ "svc.lead":"ඔබේ නිවසට හෝ කාර්යාලයට අපි පැමිණෙනවා. ෆෝම් එක පුරවන්න, අපි පැයක් ඇතුළත කතා කරලා වෙලාව තහවුරු කරගන්නම්.",
+ "svc.formTitle":"සර්විස් එකක් වෙන් කරන්න","svc.typeLabel":"ඕන කරන්නේ මොකක්ද?",
+ "svc.types":["තෝරන්න…","ඩෙස්ක්ටොප් අළුත්වැඩියාව","ලැප්ටොප් අළුත්වැඩියාව","වයිරස් ඉවත් කිරීම / මෘදුකාංග","Windows / OS ඉන්ස්ටෝල් කිරීම","හාඩ්වෙයාර් අප්ග්‍රේඩ් (RAM / SSD)","ජාලකරණය සහ WiFi","දත්ත ගලවා ගැනීම","වෙනත්"],
+ "svc.addrLabel":"ලිපිනය (අපි එන ස්ථානය)","svc.dateLabel":"කැමති දිනය","svc.timeLabel":"කැමති වේලාව",
+ "svc.times":["උදේ (8am–12pm)","දවල් (12pm–4pm)","සවස (4pm–7pm)"],
+ "svc.issueLabel":"ප්‍රශ්නය කෙටියෙන් විස්තර කරන්න","svc.issuePh":"උදා: ලැප්ටොප් එක ඔන් වෙනවා, නමුත් ස්ක්‍රීන් එක කළුයි.",
+ "svc.submit":"සර්විස් ඉල්ලීම යවන්න","svc.howTitle":"වැඩේ වෙන්නේ මෙහෙමයි",
+ "svc.steps":["ඔබ ෆෝම් එක පුරවනවා හෝ අපට කතා කරනවා.","අපි දුරකථනයෙන් ප්‍රශ්නය තේරුම් අරගෙන වෙලාවක් දෙනවා.","ටෙක්නීෂන් කෙනෙක් ඔබේ ස්ථානයට ඇවිත් පරීක්ෂා කරනවා.","වැඩේ පටන් ගන්න කලින් මිල ගණන් කියලා ඔබේ අනුමැතිය ගන්නවා.","සෑම අළුත්වැඩියාවකටම මාස 3ක වගකීමක් ලැබෙනවා."],
+ "svc.fee":"ඉන්ස්පෙක්ෂන් ගාස්තුව රු. 1,500යි. අළුත්වැඩියාව අපෙන් කරගත්තොත් එය අයකරන්නේ නැහැ.",
+ "svc.reqType":"පරිගණක සර්විස්",
+ "cctv.h2":"CCTV සවිකිරීම සහ අළුත්වැඩියාව",
+ "cctv.lead":"අලුතින් කැමරා පද්ධතියක් සවිකිරීමේ සිට පරණ එකක් හදලා දීම දක්වා සියල්ල අපි කරනවා. ඔබේ දුරකථනයෙන් ඕනෑම තැනකින් බලාගන්න පුළුවන් විදිහට සකස් කරලා දෙනවා.",
+ "cctv.formTitle":"නොමිලේ ස්ථාන පරීක්ෂාවක් ඉල්ලන්න","cctv.jobLabel":"ඕන කරන වැඩේ",
+ "cctv.jobs":["අලුතින් සවිකිරීම","පවතින පද්ධතිය අළුත්වැඩියාව","කැමරා ගණන වැඩි කිරීම","DVR / NVR ප්‍රශ්නයක්","මොබයිල් වීවින් සෙටප් කිරීම"],
+ "cctv.countLabel":"කැමරා ගණන","cctv.counts":["2","4","6","8","8ට වඩා","විශ්වාස නැහැ"],
+ "cctv.placeLabel":"ස්ථානය සහ ලිපිනය","cctv.placePh":"උදා: දෙමහල් නිවසක්, දෙහිවල",
+ "cctv.noteLabel":"වෙනත් විස්තර","cctv.submit":"ඉල්ලීම යවන්න","cctv.whatTitle":"අපි සවිකරන දේ",
+ "cctv.spec":[["කැමරා","2MP / 5MP / 8MP — Dome, Bullet, PTZ"],["වර්ග","Analog HD, IP කැමරා, WiFi කැමරා"],["රෙකෝඩින්","DVR / NVR, 1TB–8TB හාඩ් ඩිස්ක්"],["වීවින්","ෆෝන් ඇප් එකෙන් ලයිව් සහ පරණ රෙකෝඩින්"],["වගකීම","සවිකිරීමට වසර 1ක්, උපකරණවලට සමාගමේ වගකීම"]],
+ "cctv.note":"පැකේජ මිල කැමරා ගණන, කේබල් දිග සහ ස්ථානය අනුව වෙනස් වෙනවා. ස්ථාන පරීක්ෂාව නොමිලේ.",
+ "req.sent":"ඉල්ලීම ලැබුණා. අපි ඉක්මනින් කතා කරනවා.","req.label":"ඉල්ලීමක්",
+ "rev.h2":"කස්ටමර්ලා කියන දේ","rev.lead":"මේ රිවීව් අපේ Google Business Profile එකෙන් එන ඒවා.",
+ "rev.write":"Google එකේ රිවීව් එකක් දාන්න","rev.count":"Google රිවීව් {n}ක් මත පදනම්ව",
+ "rev.sample":"මේවා උදාහරණ රිවීව්. CONFIG.google තුළ ඔබේ Place ID එකයි API key එකයි දැම්මාම ඇත්ත Google රිවීව් මෙතන පෙන්වයි.",
+ "rev.live":"Google Business Profile එකෙන් සජීවීව ලබාගත් රිවීව්.",
+ "rev.fail":"Google වෙතින් රිවීව් ගන්න බැරි වුණා. API key එක සහ Place ID එක නැවත පරීක්ෂා කරන්න.",
+ "ft.about":"පරිගණක උපාංග, CCTV සවිකිරීම සහ ඔන්-සයිට් තාක්ෂණික සේවා.",
+ "ft.addr":"ගාලු පාර, දෙහිවල","ft.servicesTitle":"සේවා","ft.l1":"බඩු ඕඩර් කිරීම",
+ "ft.l2":"පරිගණක අළුත්වැඩියාව","ft.l3":"CCTV සවිකිරීම","ft.l4":"CCTV අළුත්වැඩියාව",
+ "ft.payTitle":"ගෙවීම් ක්‍රම","ft.delivery":"බඩු ලැබෙන කාලය: කොළඹ තුළ දින 1–2, අනෙක් ප්‍රදේශවලට දින 2–4.",
+ "ft.rights":"සියලු හිමිකම් ඇවිරිණි.","ft.policies":"නැවත භාර දීමේ ප්‍රතිපත්තිය · පෞද්ගලිකත්ව ප්‍රතිපත්තිය",
+ "ad.title":"ඇඩ්මින් පැනලය","ad.pw":"ඇඩ්මින් මුරපදය","ad.signin":"ඇතුළු වන්න",
+ "ad.pwNote":"පෙරනිමි මුරපදය CONFIG.adminPassword තුළ තියෙනවා — ඒක වෙනස් කරන්න.","ad.pwBad":"මුරපදය වැරදියි.",
+ "ad.tProd":"බඩු","ad.tOrd":"ඕඩර්","ad.tReq":"සර්විස් ඉල්ලීම්","ad.tExp":"බැකප්",
+ "ad.addTitle":"අලුත් බඩුවක් එකතු කරන්න","ad.fName":"නම","ad.fPrice":"මිල (රු.)","ad.fOld":"පරණ මිල (වට්ටමක් නම්)",
+ "ad.fCat":"වර්ගය","ad.fStock":"ස්ටොක් ගණන","ad.fImg":"පින්තූරයේ ලින්ක් එක","ad.fImgPh":"හිස්ව තිබ්බොත් ස්වයංක්‍රීය පින්තූරයක් යොදනවා",
+ "ad.fDesc":"කෙටි විස්තරය (කාඩ් එකේ පේන එක)","ad.fLong":"සම්පූර්ණ විස්තරය (ක්ලික් කළාම පේන එක)",
+ "ad.fSpecs":"ස්පෙක් (පේළියකට එකක් — නම: අගය)","ad.fSpecsPh":"ප්‍රොසෙසර්: Intel i5\nවගකීම: වසර 1",
+ "ad.add":"බඩුව එකතු කරන්න","ad.current":"දැනට තියෙන බඩු","ad.price":"මිල","ad.stock":"ස්ටොක්","ad.del":"මකන්න",
+ "ad.added":"බඩුව එකතු කළා.","ad.deleted":"බඩුව මැකුවා.","ad.stockUpd":"ස්ටොක් යාවත්කාලීන කළා.",
+ "ad.noOrders":"තාම ඕඩර් නැහැ.","ad.noReqs":"තාම ඉල්ලීම් නැහැ.","ad.buyNow":"ඩිරෙක්ට් බයි",
+ "ad.expNote":"මේ JSON එක කොපි කරලා, හොස්ටින් එකට දාන කලින් ෆයිල් එකේ PRODUCTS කොටසට දාන්න.",
+ "ad.copy":"කොපි කරන්න","ad.copied":"කොපි කළා.","ad.langNote":"මෙතනින් එකතු කරන බඩුවල විස්තර භාෂා දෙකේදීම එකම විදිහට පේනවා."
+}};
+
+/* ======================= PRODUCTS (bilingual) ======================= */
 let PRODUCTS = [
-  { id:"p1", name:"Lenovo IdeaPad 3 (i5, 8GB)", cat:"ලැප්ටොප්", price:189000, old:205000,
-    desc:"11වන පරම්පරාවේ Intel i5 ප්‍රොසෙසරයක් සහිත, දෛනික වැඩ සහ ඉගෙනීම සඳහා ගැළපෙන ලැප්ටොප් එකක්.",
-    long:"Intel Core i5-1135G7 ප්‍රොසෙසරය, 8GB DDR4 මතකය සහ 512GB NVMe SSD එකක් සමග එනවා. 15.6\" Full HD තිරය, backlit කීබෝඩ් සහ පැය 7ක බැටරි ආයු කාලයක් තියෙනවා. සමාගමේ වසර 1ක වගකීම සහිතයි.",
-    stock:6, img:"", specs:{"ප්‍රොසෙසර්":"Intel Core i5-1135G7","මතකය":"8GB DDR4 (16GB දක්වා වැඩි කළ හැක)","ගබඩාව":"512GB NVMe SSD","තිරය":"15.6\" Full HD IPS","වගකීම":"වසර 1"} },
-  { id:"p2", name:"Kingston NV2 1TB NVMe SSD", cat:"උපාංග", price:18500, old:0,
-    desc:"පරණ පරිගණකයක් නැවත වේගවත් කරගන්න හොඳම ක්‍රමය.",
-    long:"PCIe 4.0 හරහා 3,500MB/s දක්වා කියවීමේ වේගයක් ලබා දෙනවා. ඩෙස්ක්ටොප් සහ ලැප්ටොප් දෙකටම ගැළපෙනවා. අපෙන් ගත්තොත් ඔබේ දත්ත ක්ලෝන් කරලා දීම නොමිලේ.",
-    stock:14, img:"", specs:{"ධාරිතාව":"1TB","අතුරු මුහුණත":"PCIe 4.0 NVMe M.2","කියවීමේ වේගය":"3,500MB/s දක්වා","වගකීම":"වසර 3"} },
-  { id:"p3", name:"Hikvision 5MP ColorVu බුලට් කැමරාව", cat:"CCTV", price:14900, old:0,
-    desc:"රෑට පවා වර්ණවලින් පැහැදිලි දර්ශන ලබා දෙන කැමරාවක්.",
-    long:"රාත්‍රියේදී සුදු ආලෝකයක් යොදාගෙන කළු-සුදු නොව වර්ණ දර්ශන ලබා දෙනවා. IP67 ජල ආරක්ෂණය නිසා එළිමහනේ සවිකරන්න පුළුවන්. සවිකිරීම අපේ කණ්ඩායමෙන් කරගන්න පුළුවන්.",
-    stock:9, img:"", specs:{"විභේදනය":"5MP (2880×1620)","රාත්‍රී දර්ශනය":"මීටර් 40 වර්ණ","ආරක්ෂණය":"IP67","වගකීම":"වසර 2"} },
-  { id:"p4", name:"TP-Link Archer C6 WiFi රවුටරය", cat:"ජාලකරණය", price:9800, old:11500,
-    desc:"ගෙදරක් පුරාම ස්ථාවර WiFi සම්බන්ධතාවක්.",
-    long:"AC1200 dual-band රවුටරයක්. ඇන්ටනා 4ක් සහිතව මහල් දෙකක නිවසකට පවා ප්‍රමාණවත් ආවරණයක් ලබා දෙනවා. අපි නොමිලේ සෙටප් කරලා දෙනවා.",
-    stock:3, img:"", specs:{"වේගය":"AC1200 (867 + 300 Mbps)","පෝට්":"4 × LAN, 1 × WAN","ඇන්ටනා":"4","වගකීම":"වසර 2"} },
-  { id:"p5", name:"Logitech K380 බ්ලූටූත් කීබෝඩ්", cat:"උපාංග", price:8200, old:0,
-    desc:"උපාංග තුනක් අතර ක්ෂණිකව මාරු වෙන්න පුළුවන් සිහින් කීබෝඩ් එකක්.",
-    long:"ලැප්ටොප්, ටැබ්ලට් සහ ෆෝන් අතර බොත්තමකින් මාරු වෙන්න පුළුවන්. AAA බැටරි 2කින් මාස 24ක් යනවා.",
-    stock:0, img:"", specs:{"සම්බන්ධතාවය":"Bluetooth","උපාංග":"එකවර 3ක්","බැටරිය":"මාස 24 දක්වා","වගකීම":"වසර 1"} },
-  { id:"p6", name:"APC 650VA UPS", cat:"උපාංග", price:16500, old:0,
-    desc:"කරන්ට් කැපුණාම වැඩ බේරගන්න.",
-    long:"විදුලිය කැපුණු විට විනාඩි 15–20ක් දක්වා පරිගණකය ක්‍රියාත්මකව තබාගන්නවා. වෝල්ටේජ් වෙනස්වීම්වලින් ආරක්ෂාවත් ලැබෙනවා.",
-    stock:5, img:"", specs:{"ධාරිතාව":"650VA / 390W","බැකප් කාලය":"විනාඩි 15–20","පෝට්":"3","වගකීම":"වසර 2"} }
+  { id:"p1", name:"Lenovo IdeaPad 3 (i5, 8GB)",
+    cat:{en:"Laptops", si:"ලැප්ටොප්"}, price:189000, old:205000, stock:6, img:"",
+    desc:{en:"An 11th-gen Intel i5 laptop that handles daily work and study without fuss.",
+          si:"දෛනික වැඩ සහ ඉගෙනීම සඳහා ගැළපෙන 11වන පරම්පරාවේ Intel i5 ලැප්ටොප් එකක්."},
+    long:{en:"Ships with an Intel Core i5-1135G7, 8GB of DDR4 memory and a 512GB NVMe SSD. The 15.6\" Full HD screen, backlit keyboard and roughly 7 hours of battery make it a comfortable all-day machine. One year manufacturer warranty included.",
+          si:"Intel Core i5-1135G7 ප්‍රොසෙසරය, 8GB DDR4 මතකය සහ 512GB NVMe SSD එකක් සමග එනවා. 15.6\" Full HD තිරය, backlit කීබෝඩ් සහ පැය 7ක පමණ බැටරි ආයු කාලයක් තියෙනවා. සමාගමේ වසර 1ක වගකීම සහිතයි."},
+    specs:{en:{"Processor":"Intel Core i5-1135G7","Memory":"8GB DDR4 (upgradable to 16GB)","Storage":"512GB NVMe SSD","Display":"15.6\" Full HD IPS","Warranty":"1 year"},
+           si:{"ප්‍රොසෙසර්":"Intel Core i5-1135G7","මතකය":"8GB DDR4 (16GB දක්වා වැඩි කළ හැක)","ගබඩාව":"512GB NVMe SSD","තිරය":"15.6\" Full HD IPS","වගකීම":"වසර 1"}} },
+
+  { id:"p2", name:"Kingston NV2 1TB NVMe SSD",
+    cat:{en:"Components", si:"උපාංග"}, price:18500, old:0, stock:14, img:"",
+    desc:{en:"The cheapest way to make an older computer feel new again.",
+          si:"පරණ පරිගණකයක් නැවත වේගවත් කරගන්න හොඳම ක්‍රමය."},
+    long:{en:"Runs on PCIe 4.0 with read speeds up to 3,500MB/s. Fits both desktops and most laptops. Buy it from us and we'll clone your existing drive across at no extra cost.",
+          si:"PCIe 4.0 හරහා 3,500MB/s දක්වා කියවීමේ වේගයක් ලබා දෙනවා. ඩෙස්ක්ටොප් සහ ලැප්ටොප් දෙකටම ගැළපෙනවා. අපෙන් ගත්තොත් ඔබේ දත්ත ක්ලෝන් කරලා දීම නොමිලේ."},
+    specs:{en:{"Capacity":"1TB","Interface":"PCIe 4.0 NVMe M.2","Read speed":"Up to 3,500MB/s","Warranty":"3 years"},
+           si:{"ධාරිතාව":"1TB","අතුරු මුහුණත":"PCIe 4.0 NVMe M.2","කියවීමේ වේගය":"3,500MB/s දක්වා","වගකීම":"වසර 3"}} },
+
+  { id:"p3", name:"Hikvision 5MP ColorVu bullet camera",
+    cat:{en:"CCTV", si:"CCTV"}, price:14900, old:0, stock:9, img:"",
+    desc:{en:"Keeps recording in full colour after dark instead of switching to grey.",
+          si:"රෑට පවා වර්ණවලින් පැහැදිලි දර්ශන ලබා දෙන කැමරාවක්."},
+    long:{en:"Uses a warm supplement light at night so faces and number plates stay readable in colour. IP67 rated for outdoor mounting. Our team can install it along with the rest of the system.",
+          si:"රාත්‍රියේදී සුදු ආලෝකයක් යොදාගෙන කළු-සුදු නොව වර්ණ දර්ශන ලබා දෙනවා. IP67 ජල ආරක්ෂණය නිසා එළිමහනේ සවිකරන්න පුළුවන්. සවිකිරීම අපේ කණ්ඩායමෙන් කරගන්න පුළුවන්."},
+    specs:{en:{"Resolution":"5MP (2880×1620)","Night vision":"40m in colour","Rating":"IP67 weatherproof","Warranty":"2 years"},
+           si:{"විභේදනය":"5MP (2880×1620)","රාත්‍රී දර්ශනය":"මීටර් 40 වර්ණ","ආරක්ෂණය":"IP67","වගකීම":"වසර 2"}} },
+
+  { id:"p4", name:"TP-Link Archer C6 WiFi router",
+    cat:{en:"Networking", si:"ජාලකරණය"}, price:9800, old:11500, stock:3, img:"",
+    desc:{en:"Steady WiFi across a whole house, including the back rooms.",
+          si:"ගෙදරක් පුරාම ස්ථාවර WiFi සම්බන්ධතාවක්."},
+    long:{en:"An AC1200 dual-band router with four antennas, enough coverage for a typical two-storey home. We'll set it up with your ISP details free of charge.",
+          si:"AC1200 dual-band රවුටරයක්. ඇන්ටනා 4ක් සහිතව මහල් දෙකක නිවසකට පවා ප්‍රමාණවත් ආවරණයක් ලබා දෙනවා. අපි නොමිලේ සෙටප් කරලා දෙනවා."},
+    specs:{en:{"Speed":"AC1200 (867 + 300 Mbps)","Ports":"4 × LAN, 1 × WAN","Antennas":"4","Warranty":"2 years"},
+           si:{"වේගය":"AC1200 (867 + 300 Mbps)","පෝට්":"4 × LAN, 1 × WAN","ඇන්ටනා":"4","වගකීම":"වසර 2"}} },
+
+  { id:"p5", name:"Logitech K380 Bluetooth keyboard",
+    cat:{en:"Accessories", si:"උපාංග"}, price:8200, old:0, stock:0, img:"",
+    desc:{en:"A slim keyboard that switches between three devices at the press of a key.",
+          si:"උපාංග තුනක් අතර ක්ෂණිකව මාරු වෙන්න පුළුවන් සිහින් කීබෝඩ් එකක්."},
+    long:{en:"Pairs with a laptop, tablet and phone at the same time, and you swap between them instantly. Two AAA batteries last up to two years.",
+          si:"ලැප්ටොප්, ටැබ්ලට් සහ ෆෝන් අතර බොත්තමකින් මාරු වෙන්න පුළුවන්. AAA බැටරි 2කින් මාස 24ක් යනවා."},
+    specs:{en:{"Connection":"Bluetooth","Devices":"3 at once","Battery":"Up to 24 months","Warranty":"1 year"},
+           si:{"සම්බන්ධතාවය":"Bluetooth","උපාංග":"එකවර 3ක්","බැටරිය":"මාස 24 දක්වා","වගකීම":"වසර 1"}} },
+
+  { id:"p6", name:"APC 650VA UPS",
+    cat:{en:"Accessories", si:"උපාංග"}, price:16500, old:0, stock:5, img:"",
+    desc:{en:"Saves your work when the power cuts out mid-sentence.",
+          si:"කරන්ට් කැපුණාම වැඩ බේරගන්න."},
+    long:{en:"Keeps a desktop running for 15 to 20 minutes after an outage, long enough to save and shut down properly. Also protects against voltage swings.",
+          si:"විදුලිය කැපුණු විට විනාඩි 15–20ක් දක්වා පරිගණකය ක්‍රියාත්මකව තබාගන්නවා. වෝල්ටේජ් වෙනස්වීම්වලින් ආරක්ෂාවත් ලැබෙනවා."},
+    specs:{en:{"Capacity":"650VA / 390W","Backup time":"15–20 minutes","Outlets":"3","Warranty":"2 years"},
+           si:{"ධාරිතාව":"650VA / 390W","බැකප් කාලය":"විනාඩි 15–20","පෝට්":"3","වගකීම":"වසර 2"}} }
 ];
 
 const SERVICES = [
-  { t:"ඩෙස්ක්ටොප් සර්විස්", d:"පිරිසිදු කිරීම, තර්මල් පේස්ට් අලුත් කිරීම, කොම්පෝනන්ට් පරීක්ෂාව.", p:"රු. 2,500 සිට" },
-  { t:"ලැප්ටොප් අළුත්වැඩියාව", d:"ස්ක්‍රීන්, කීබෝඩ්, බැටරි, චාජින් පෝට් සහ මදර්බෝඩ් වැඩ.", p:"රු. 3,000 සිට" },
-  { t:"මෘදුකාංග සහ වයිරස්", d:"Windows ඉන්ස්ටෝල්, ඩ්‍රයිවර්, වයිරස් ඉවත් කිරීම.", p:"රු. 2,000 සිට" },
-  { t:"අප්ග්‍රේඩ්", d:"RAM සහ SSD එකතු කිරීමෙන් පරණ මැෂින් එකක් අලුත් කරගන්න.", p:"රු. 1,500 + උපාංග" },
-  { t:"දත්ත ගලවා ගැනීම", d:"මැකුණු හෝ හානි වුණු හාඩ් ඩිස්කයකින් දත්ත නැවත ලබාගැනීම.", p:"රු. 5,000 සිට" },
-  { t:"කාර්යාල ජාලකරණය", d:"LAN කේබල්, ස්විච්, ප්‍රින්ටර් ෂෙයාරින් සහ WiFi ආවරණය.", p:"ස්ථානය බලා" }
+  { t:{en:"Desktop service", si:"ඩෙස්ක්ටොප් සර්විස්"},
+    d:{en:"Full clean, fresh thermal paste and a check of every component.", si:"පිරිසිදු කිරීම, තර්මල් පේස්ට් අලුත් කිරීම, කොම්පෝනන්ට් පරීක්ෂාව."},
+    p:{en:"From Rs. 2,500", si:"රු. 2,500 සිට"} },
+  { t:{en:"Laptop repair", si:"ලැප්ටොප් අළුත්වැඩියාව"},
+    d:{en:"Screens, keyboards, batteries, charging ports and motherboard work.", si:"ස්ක්‍රීන්, කීබෝඩ්, බැටරි, චාජින් පෝට් සහ මදර්බෝඩ් වැඩ."},
+    p:{en:"From Rs. 3,000", si:"රු. 3,000 සිට"} },
+  { t:{en:"Software and viruses", si:"මෘදුකාංග සහ වයිරස්"},
+    d:{en:"Windows installs, drivers and removing whatever slowed it down.", si:"Windows ඉන්ස්ටෝල්, ඩ්‍රයිවර්, වයිරස් ඉවත් කිරීම."},
+    p:{en:"From Rs. 2,000", si:"රු. 2,000 සිට"} },
+  { t:{en:"Upgrades", si:"අප්ග්‍රේඩ්"},
+    d:{en:"Adding RAM or an SSD is usually cheaper than buying a new machine.", si:"RAM සහ SSD එකතු කිරීමෙන් පරණ මැෂින් එකක් අලුත් කරගන්න."},
+    p:{en:"Rs. 1,500 + parts", si:"රු. 1,500 + උපාංග"} },
+  { t:{en:"Data recovery", si:"දත්ත ගලවා ගැනීම"},
+    d:{en:"Getting files back off a deleted or failing hard drive.", si:"මැකුණු හෝ හානි වුණු හාඩ් ඩිස්කයකින් දත්ත නැවත ලබාගැනීම."},
+    p:{en:"From Rs. 5,000", si:"රු. 5,000 සිට"} },
+  { t:{en:"Office networking", si:"කාර්යාල ජාලකරණය"},
+    d:{en:"LAN cabling, switches, shared printers and WiFi coverage.", si:"LAN කේබල්, ස්විච්, ප්‍රින්ටර් ෂෙයාරින් සහ WiFi ආවරණය."},
+    p:{en:"Quoted on site", si:"ස්ථානය බලා"} }
 ];
 
 const CCTV_PKGS = [
-  { t:"කැමරා 2 පැකේජය", d:"5MP කැමරා 2ක්, DVR, 500GB ඩිස්ක්, කේබල් සහ සවිකිරීම.", p:"රු. 62,000 සිට" },
-  { t:"කැමරා 4 පැකේජය", d:"කුඩා නිවසකට හෝ කඩයකට ගැළපෙන සම්පූර්ණ පැකේජය.", p:"රු. 98,000 සිට" },
-  { t:"කැමරා 8 පැකේජය", d:"විශාල නිවසකට හෝ ගබඩාවකට. 2TB ඩිස්ක් සමග.", p:"රු. 175,000 සිට" },
-  { t:"අළුත්වැඩියා සේවය", d:"රෙකෝඩින් නැවතුණා ද? කැමරාවක් නොපෙනේ ද? අපි හදලා දෙනවා.", p:"පරීක්ෂාව රු. 2,000" }
+  { t:{en:"2-camera package", si:"කැමරා 2 පැකේජය"},
+    d:{en:"Two 5MP cameras, DVR, 500GB drive, cabling and installation.", si:"5MP කැමරා 2ක්, DVR, 500GB ඩිස්ක්, කේබල් සහ සවිකිරීම."},
+    p:{en:"From Rs. 62,000", si:"රු. 62,000 සිට"} },
+  { t:{en:"4-camera package", si:"කැමරා 4 පැකේජය"},
+    d:{en:"The usual choice for a small house or a shop front.", si:"කුඩා නිවසකට හෝ කඩයකට ගැළපෙන සම්පූර්ණ පැකේජය."},
+    p:{en:"From Rs. 98,000", si:"රු. 98,000 සිට"} },
+  { t:{en:"8-camera package", si:"කැමරා 8 පැකේජය"},
+    d:{en:"For larger homes and warehouses, with a 2TB drive.", si:"විශාල නිවසකට හෝ ගබඩාවකට. 2TB ඩිස්ක් සමග."},
+    p:{en:"From Rs. 175,000", si:"රු. 175,000 සිට"} },
+  { t:{en:"Repair service", si:"අළුත්වැඩියා සේවය"},
+    d:{en:"Recording stopped? A camera gone dark? We'll find it and fix it.", si:"රෙකෝඩින් නැවතුණා ද? කැමරාවක් නොපෙනේ ද? අපි හදලා දෙනවා."},
+    p:{en:"Inspection Rs. 2,000", si:"පරීක්ෂාව රු. 2,000"} }
 ];
 
 const SAMPLE_REVIEWS = [
-  { author:"Nuwan Perera", rating:5, time:"මාස 1කට පෙර", text:"ලැප්ටොප් එකේ ස්ක්‍රීන් එක මාරු කරන්න ගෙදරටම ආවා. මිල ගණන් කලින්ම කිව්වා, හැංගිච්ච ගාස්තු තිබුණේ නැහැ." },
-  { author:"Ishara Fernando", rating:5, time:"මාස 2කට පෙර", text:"කැමරා 4ක් ගෙදර සවි කළා. වැඩේ පිරිසිදුයි, කේබල් ලස්සනට ගෙනිහින් තිබුණා. ෆෝන් එකෙන් බලන එකත් සෙට් කරලා දුන්නා." },
-  { author:"Kasun Silva", rating:4, time:"මාස 3කට පෙර", text:"SSD එක ගත්තා, ඩිලිවරි දවසෙන්ම ආවා. දත්ත ක්ලෝන් කරලා දුන්නෙත් නොමිලේ." },
-  { author:"Dilini Jayasuriya", rating:5, time:"මාස 4කට පෙර", text:"කාර්යාලයේ පරිගණක 6ක් සර්විස් කළා. දැන් හරිම වේගවත්. හදිසියේ කතා කළත් ඉක්මනට එනවා." },
-  { author:"Ruwan Bandara", rating:5, time:"මාස 5කට පෙර", text:"පරණ CCTV සිස්ටම් එකේ DVR එක හැදුවා. අලුත් එකක් ගන්න ඕන නැහැ කියලා කිව්වා — අවංකකම අගය කරනවා." },
-  { author:"Tharindu Weerasinghe", rating:5, time:"මාස 6කට පෙර", text:"COD එකෙන් ඕඩර් කළා. බඩුව බලලා, හරි කියලා තහවුරු කරගෙනයි සල්ලි දුන්නේ. හොඳ ක්‍රමයක්." }
+  { author:"Nuwan Perera", rating:5, time:{en:"a month ago", si:"මාස 1කට පෙර"},
+    text:{en:"Came home to replace my laptop screen. Quoted the price upfront and there were no surprise charges at the end.",
+          si:"ලැප්ටොප් එකේ ස්ක්‍රීන් එක මාරු කරන්න ගෙදරටම ආවා. මිල ගණන් කලින්ම කිව්වා, හැංගිච්ච ගාස්තු තිබුණේ නැහැ."} },
+  { author:"Ishara Fernando", rating:5, time:{en:"2 months ago", si:"මාස 2කට පෙර"},
+    text:{en:"Installed four cameras at our house. Tidy work, cables run neatly, and they set up phone viewing before leaving.",
+          si:"කැමරා 4ක් ගෙදර සවි කළා. වැඩේ පිරිසිදුයි, කේබල් ලස්සනට ගෙනිහින් තිබුණා. ෆෝන් එකෙන් බලන එකත් සෙට් කරලා දුන්නා."} },
+  { author:"Kasun Silva", rating:4, time:{en:"3 months ago", si:"මාස 3කට පෙර"},
+    text:{en:"Ordered an SSD and it arrived the same day. They cloned my data across for free too.",
+          si:"SSD එක ගත්තා, ඩිලිවරි දවසෙන්ම ආවා. දත්ත ක්ලෝන් කරලා දුන්නෙත් නොමිලේ."} },
+  { author:"Dilini Jayasuriya", rating:5, time:{en:"4 months ago", si:"මාස 4කට පෙර"},
+    text:{en:"Serviced six office machines. All noticeably faster now, and they turn up quickly even on short notice.",
+          si:"කාර්යාලයේ පරිගණක 6ක් සර්විස් කළා. දැන් හරිම වේගවත්. හදිසියේ කතා කළත් ඉක්මනට එනවා."} },
+  { author:"Ruwan Bandara", rating:5, time:{en:"5 months ago", si:"මාස 5කට පෙර"},
+    text:{en:"Repaired the DVR on our old CCTV system instead of pushing us to buy a new one. That honesty earned my business.",
+          si:"පරණ CCTV සිස්ටම් එකේ DVR එක හැදුවා. අලුත් එකක් ගන්න ඕන නැහැ කියලා කිව්වා — අවංකකම අගය කරනවා."} },
+  { author:"Tharindu Weerasinghe", rating:5, time:{en:"6 months ago", si:"මාස 6කට පෙර"},
+    text:{en:"Used cash on delivery. Checked the item first, then paid. Exactly how it should work.",
+          si:"COD එකෙන් ඕඩර් කළා. බඩුව බලලා, හරි කියලා තහවුරු කරගෙනයි සල්ලි දුන්නේ. හොඳ ක්‍රමයක්."} }
 ];
 
 /* ======================= STATE ======================= */
-let cart = [];              // {id, qty}
-let buyNowItem = null;      // direct buy
-let orders = [];
-let requests = [];
-let activeCat = "සියල්ල";
-let searchTerm = "";
-let currentProduct = null;
+let lang = null;
+let cart = [], orders = [], requests = [];
+let buyNowItem = null, currentProduct = null;
+let activeCat = "__all", searchTerm = "";
 
 const $  = (s,r=document)=>r.querySelector(s);
 const $$ = (s,r=document)=>Array.from(r.querySelectorAll(s));
-const money = n => CONFIG.currency + " " + Number(n).toLocaleString("en-LK");
 const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const t = (k,vars)=>{
+  let s = (I18N[lang] && I18N[lang][k]) ?? (I18N.en[k] ?? k);
+  if(vars && typeof s === "string") Object.entries(vars).forEach(([a,b])=> s = s.replaceAll("{"+a+"}", b));
+  return s;
+};
+/* picks the right language out of {en,si} objects; plain strings pass through */
+const L = v => (v && typeof v === "object" && !Array.isArray(v)) ? (v[lang] ?? v.en ?? "") : (v ?? "");
+const catKey = p => (p.cat && typeof p.cat === "object") ? (p.cat.en || p.cat.si) : p.cat;
+const money = n => (lang==="si" ? "රු. " : "Rs. ") + Number(n).toLocaleString("en-LK");
 
-/* පින්තූරයක් නැත්නම් ලස්සන placeholder එකක් හදනවා */
+function toast(msg){
+  const el = $("#toast"); el.textContent = msg; el.classList.add("show");
+  clearTimeout(el._t); el._t = setTimeout(()=>el.classList.remove("show"), 2600);
+}
+
+/* ======================= STORAGE ======================= */
+/* Tries the artifact storage API first, then browser storage when the file is
+   hosted normally. Both are wrapped so the site still works if neither exists. */
+async function store(key, value){
+  try{ if(window.storage){ await window.storage.set(key, value); return; } }catch(e){}
+  try{ window.localStorage.setItem(key, value); }catch(e){}
+}
+async function recall(key){
+  try{ if(window.storage){ const r = await window.storage.get(key); if(r && r.value != null) return r.value; } }catch(e){}
+  try{ const v = window.localStorage.getItem(key); if(v != null) return v; }catch(e){}
+  return null;
+}
+async function saveData(){ await store("hypnotec:data", JSON.stringify({PRODUCTS, orders, requests})); }
+async function loadData(){
+  const raw = await recall("hypnotec:data");
+  if(!raw) return;
+  try{
+    const d = JSON.parse(raw);
+    if(Array.isArray(d.PRODUCTS) && d.PRODUCTS.length) PRODUCTS = d.PRODUCTS;
+    orders = d.orders || []; requests = d.requests || [];
+  }catch(e){}
+}
+
+/* ======================= LANGUAGE ======================= */
+function applyLang(){
+  document.documentElement.lang = lang;
+  $$("[data-i18n]").forEach(el=> el.textContent = t(el.dataset.i18n));
+  $$("[data-i18n-ph]").forEach(el=> el.placeholder = t(el.dataset.i18nPh));
+  $$("[data-i18n-aria]").forEach(el=> el.setAttribute("aria-label", t(el.dataset.i18nAria)));
+  $$("[data-i18n-options]").forEach(sel=>{
+    const opts = t(sel.dataset.i18nOptions), keep = sel.selectedIndex;
+    sel.innerHTML = opts.map((o,i)=>`<option${i===0 && o.endsWith("…")?' value=""':''}>${esc(o)}</option>`).join("");
+    if(keep >= 0 && keep < opts.length) sel.selectedIndex = keep;
+  });
+  $("#langToggle").textContent = t("lang.switch");
+  $("#svcSteps").innerHTML = t("svc.steps").map(s=>`<li>${esc(s)}</li>`).join("");
+  $("#cctvSpec").innerHTML = t("cctv.spec").map(([a,b])=>`<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join("");
+  renderChips(); renderProducts(); renderCards(); renderCart(); renderReviews();
+  if($("#adminModal").classList.contains("open") && adminUnlocked) renderAdmin();
+}
+async function setLang(next, save=true){
+  lang = next;
+  if(save) await store("hypnotec:lang", next);
+  applyLang();
+}
+$("#langToggle").onclick = ()=> setLang(lang==="si" ? "en" : "si");
+$$("#langGate button").forEach(b=> b.onclick = async ()=>{
+  await setLang(b.dataset.lang);
+  $("#langGate").classList.remove("show");
+  document.body.style.overflow = "";
+});
+
+/* ======================= HELPERS ======================= */
 function imgFor(p){
   if(p.img) return p.img;
   const letter = (p.name||"?").trim().charAt(0);
@@ -581,48 +835,25 @@ function imgFor(p){
   return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
 }
 function stockInfo(p){
-  if(p.stock <= 0) return {cls:"out", txt:"ස්ටොක් ඉවරයි"};
-  if(p.stock <= 3) return {cls:"low", txt:`ඉතුරු ${p.stock}ක් පමණයි`};
-  return {cls:"in", txt:`ස්ටොක් තියෙනවා (${p.stock})`};
-}
-function toast(msg){
-  const t = $("#toast"); t.textContent = msg; t.classList.add("show");
-  clearTimeout(t._t); t._t = setTimeout(()=>t.classList.remove("show"), 2600);
-}
-
-/* ======================= STORAGE (විකල්ප) ======================= */
-async function saveData(){
-  try{
-    if(window.storage){
-      await window.storage.set("hypnotec:data", JSON.stringify({PRODUCTS, orders, requests}));
-    }
-  }catch(e){ /* storage නැත්නම් මතකයේ විතරක් තියෙනවා */ }
-}
-async function loadData(){
-  try{
-    if(window.storage){
-      const r = await window.storage.get("hypnotec:data");
-      if(r && r.value){
-        const d = JSON.parse(r.value);
-        if(Array.isArray(d.PRODUCTS) && d.PRODUCTS.length) PRODUCTS = d.PRODUCTS;
-        orders = d.orders || []; requests = d.requests || [];
-      }
-    }
-  }catch(e){ /* පළමු වතාවට කීයක් නැහැ */ }
+  if(p.stock <= 0) return {cls:"out", txt:t("stock.out")};
+  if(p.stock <= 3) return {cls:"low", txt:t("stock.low",{n:p.stock})};
+  return {cls:"in", txt:t("stock.in",{n:p.stock})};
 }
 
 /* ======================= SHOP RENDER ======================= */
 function renderChips(){
-  const cats = ["සියල්ල", ...new Set(PRODUCTS.map(p=>p.cat).filter(Boolean))];
-  $("#catChips").innerHTML = cats.map(c=>
-    `<button class="chip" aria-pressed="${c===activeCat}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
+  const seen = new Map();
+  PRODUCTS.forEach(p=>{ const k = catKey(p); if(k && !seen.has(k)) seen.set(k, L(p.cat)); });
+  const items = [["__all", t("shop.all")], ...seen];
+  $("#catChips").innerHTML = items.map(([k,label])=>
+    `<button class="chip" aria-pressed="${k===activeCat}" data-cat="${esc(k)}">${esc(label)}</button>`).join("");
 }
 function visibleProducts(){
   const q = searchTerm.trim().toLowerCase();
   return PRODUCTS.filter(p=>{
-    const catOk = activeCat==="සියල්ල" || p.cat===activeCat;
-    const qOk = !q || (p.name+" "+(p.desc||"")+" "+(p.cat||"")).toLowerCase().includes(q);
-    return catOk && qOk;
+    const catOk = activeCat==="__all" || catKey(p)===activeCat;
+    const hay = (p.name+" "+L(p.desc)+" "+L(p.cat)).toLowerCase();
+    return catOk && (!q || hay.includes(q));
   });
 }
 function renderProducts(){
@@ -630,20 +861,20 @@ function renderProducts(){
   $("#noResults").hidden = list.length>0;
   $("#productGrid").innerHTML = list.map(p=>{
     const s = stockInfo(p), out = p.stock<=0;
-    return `<article class="pcard" tabindex="0" role="button" data-id="${p.id}" aria-label="${esc(p.name)} — විස්තර බලන්න">
+    return `<article class="pcard" tabindex="0" role="button" data-id="${p.id}" aria-label="${esc(p.name)} — ${esc(t("p.viewDetails"))}">
       <div class="thumb">
         <img src="${esc(imgFor(p))}" alt="${esc(p.name)}" loading="lazy">
-        ${p.old>p.price ? `<span class="tag">වට්ටම්</span>`:""}
-        ${out ? `<div class="soldout-veil">ස්ටොක් ඉවරයි</div>`:""}
+        ${p.old>p.price ? `<span class="tag">${esc(t("shop.sale"))}</span>`:""}
+        ${out ? `<div class="soldout-veil">${esc(t("stock.out"))}</div>`:""}
       </div>
       <div class="body">
         <h3>${esc(p.name)}</h3>
-        <p class="desc">${esc(p.desc)}</p>
+        <p class="desc">${esc(L(p.desc))}</p>
         <div class="price">${money(p.price)}${p.old>p.price?`<s>${money(p.old)}</s>`:""}</div>
-        <div class="stock ${s.cls}">${s.txt}</div>
+        <div class="stock ${s.cls}">${esc(s.txt)}</div>
         <div class="row">
-          <button class="btn btn-line" data-act="add" data-id="${p.id}" ${out?"disabled":""}>කාට් එකට</button>
-          <button class="btn btn-primary" data-act="buy" data-id="${p.id}" ${out?"disabled":""}>දැන්ම ගන්න</button>
+          <button class="btn btn-line" data-act="add" data-id="${p.id}" ${out?"disabled":""}>${esc(t("shop.addCart"))}</button>
+          <button class="btn btn-primary" data-act="buy" data-id="${p.id}" ${out?"disabled":""}>${esc(t("shop.buyNow"))}</button>
         </div>
       </div>
     </article>`;
@@ -652,97 +883,93 @@ function renderProducts(){
 }
 function renderCards(){
   $("#svcGrid").innerHTML = SERVICES.map(s=>
-    `<div class="svc"><h3>${esc(s.t)}</h3><p>${esc(s.d)}</p><div class="from">${esc(s.p)}</div></div>`).join("");
+    `<div class="svc"><h3>${esc(L(s.t))}</h3><p>${esc(L(s.d))}</p><div class="from">${esc(L(s.p))}</div></div>`).join("");
   $("#cctvGrid").innerHTML = CCTV_PKGS.map(s=>
-    `<div class="svc"><h3 style="color:#fff">${esc(s.t)}</h3><p>${esc(s.d)}</p><div class="from">${esc(s.p)}</div></div>`).join("");
+    `<div class="svc"><h3>${esc(L(s.t))}</h3><p>${esc(L(s.d))}</p><div class="from">${esc(L(s.p))}</div></div>`).join("");
 }
 
-/* ======================= MODAL PLUMBING ======================= */
-let lastFocus=null;
+/* ======================= MODALS ======================= */
+let lastFocus = null;
 function openModal(id){
   lastFocus = document.activeElement;
   $("#overlay").classList.add("open");
   $("#"+id).classList.add("open");
-  document.body.style.overflow="hidden";
+  document.body.style.overflow = "hidden";
   const f = $("#"+id).querySelector("input,select,textarea,button");
-  if(f) setTimeout(()=>f.focus(),40);
+  if(f) setTimeout(()=>f.focus(), 40);
 }
 function closeModals(){
   $("#overlay").classList.remove("open");
   $$(".modal").forEach(m=>m.classList.remove("open"));
-  document.body.style.overflow="";
+  if(!$("#langGate").classList.contains("show")) document.body.style.overflow = "";
   if(lastFocus) lastFocus.focus();
 }
 $("#overlay").addEventListener("click", closeModals);
 document.addEventListener("click", e=>{ if(e.target.closest("[data-close]")) closeModals(); });
-document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeModals(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !$("#langGate").classList.contains("show")) closeModals(); });
 
 /* ======================= PRODUCT DETAIL ======================= */
 function openProduct(id){
   const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
   currentProduct = {p, qty:1};
   const s = stockInfo(p), out = p.stock<=0;
-  const specRows = Object.entries(p.specs||{}).map(([k,v])=>
-    `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("");
+  const specs = L(p.specs) || {};
+  const specRows = Object.entries(specs).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("");
   $("#pmTitle").textContent = p.name;
   $("#pmBody").innerHTML = `
     <div class="detail">
       <div class="gal"><img src="${esc(imgFor(p))}" alt="${esc(p.name)}"></div>
       <div>
-        <div class="note">${esc(p.cat||"")}</div>
+        <div class="note">${esc(L(p.cat))}</div>
         <h2 style="margin:4px 0 10px">${esc(p.name)}</h2>
         <div class="price" style="font-size:1.6rem">${money(p.price)}${p.old>p.price?`<s>${money(p.old)}</s>`:""}</div>
-        <div class="stock ${s.cls}" style="margin:10px 0 14px">${s.txt}</div>
-        <p style="font-size:.95rem">${esc(p.long || p.desc)}</p>
+        <div class="stock ${s.cls}" style="margin:10px 0 14px">${esc(s.txt)}</div>
+        <p style="font-size:.95rem">${esc(L(p.long) || L(p.desc))}</p>
         ${specRows?`<table class="spec">${specRows}</table>`:""}
         <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px">
           <div class="qty">
-            <button type="button" id="qMinus" aria-label="අඩු කරන්න">−</button>
+            <button type="button" id="qMinus" aria-label="−">−</button>
             <span id="qVal">1</span>
-            <button type="button" id="qPlus" aria-label="වැඩි කරන්න">+</button>
+            <button type="button" id="qPlus" aria-label="+">+</button>
           </div>
           <span class="note" id="qNote"></span>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn btn-line" id="pmAdd" ${out?"disabled":""} style="flex:1;min-width:150px">කාට් එකට දාන්න</button>
-          <button class="btn btn-primary" id="pmBuy" ${out?"disabled":""} style="flex:1;min-width:150px">දැන්ම ගන්න</button>
+          <button class="btn btn-line" id="pmAdd" ${out?"disabled":""} style="flex:1;min-width:150px">${esc(t("shop.addCart"))}</button>
+          <button class="btn btn-primary" id="pmBuy" ${out?"disabled":""} style="flex:1;min-width:150px">${esc(t("shop.buyNow"))}</button>
         </div>
-        <p class="note" style="margin-top:14px">රු. ${CONFIG.freeDeliveryAbove.toLocaleString("en-LK")}ට වැඩි ඕඩර්වලට ඩිලිවරි නොමිලේ · COD, බැංකු ට්‍රාන්ස්ෆර් සහ කාඩ් පිළිගනිමු.</p>
+        <p class="note" style="margin-top:14px">${esc(t("p.freeDel",{x:money(CONFIG.freeDeliveryAbove)}))}</p>
       </div>
     </div>`;
   const setQ = v=>{
     currentProduct.qty = Math.max(1, Math.min(p.stock||1, v));
     $("#qVal").textContent = currentProduct.qty;
-    $("#qNote").textContent = currentProduct.qty>=p.stock && p.stock>0 ? "මේක තමයි ඇති උපරිමය" : "";
+    $("#qNote").textContent = (currentProduct.qty>=p.stock && p.stock>0) ? t("p.max") : "";
   };
   $("#qMinus").onclick = ()=>setQ(currentProduct.qty-1);
   $("#qPlus").onclick  = ()=>setQ(currentProduct.qty+1);
-  $("#pmAdd").onclick  = ()=>{ addToCart(p.id, currentProduct.qty); };
-  $("#pmBuy").onclick  = ()=>{ directBuy(p.id, currentProduct.qty); };
+  $("#pmAdd").onclick  = ()=>addToCart(p.id, currentProduct.qty);
+  $("#pmBuy").onclick  = ()=>directBuy(p.id, currentProduct.qty);
   openModal("productModal");
 }
 
 /* ======================= CART ======================= */
 function cartLines(){ return cart.map(c=>({p:PRODUCTS.find(x=>x.id===c.id), qty:c.qty})).filter(l=>l.p); }
-function cartTotal(){ return cartLines().reduce((s,l)=>s+l.p.price*l.qty,0); }
 function updateCount(){ $("#cartCount").textContent = cart.reduce((s,c)=>s+c.qty,0); }
 
 function addToCart(id, qty=1){
   const p = PRODUCTS.find(x=>x.id===id); if(!p || p.stock<=0) return;
   const line = cart.find(c=>c.id===id);
-  const have = line ? line.qty : 0;
-  const add = Math.min(qty, p.stock - have);
-  if(add<=0){ toast("ස්ටොක් එකේ තියෙන ගණන දැනටමත් කාට් එකේ තියෙනවා."); return; }
+  const add = Math.min(qty, p.stock - (line?line.qty:0));
+  if(add<=0){ toast(t("p.allInCart")); return; }
   if(line) line.qty += add; else cart.push({id, qty:add});
-  updateCount(); renderCart();
-  toast(`${p.name} කාට් එකට එකතු කළා.`);
+  updateCount(); renderCart(); toast(t("p.added",{name:p.name}));
 }
 function renderCart(){
   const lines = cartLines();
   if(!lines.length){
-    $("#cartBody").innerHTML = `<div class="empty"><p>කාට් එක හිස්.</p><button class="btn btn-line" data-close>බඩු බලන්න</button></div>`;
-    $("#cartFoot").innerHTML = "";
-    return;
+    $("#cartBody").innerHTML = `<div class="empty"><p>${esc(t("cart.empty"))}</p><button class="btn btn-line" data-close>${esc(t("cart.browse"))}</button></div>`;
+    $("#cartFoot").innerHTML = ""; return;
   }
   $("#cartBody").innerHTML = lines.map(l=>`
     <div class="citem">
@@ -751,25 +978,23 @@ function renderCart(){
         <h4>${esc(l.p.name)}</h4>
         <div class="note">${money(l.p.price)} × ${l.qty}</div>
         <div class="qty" style="margin-top:6px;transform:scale(.88);transform-origin:left">
-          <button type="button" data-cq="-" data-id="${l.p.id}" aria-label="අඩු">−</button>
+          <button type="button" data-cq="-" data-id="${l.p.id}" aria-label="−">−</button>
           <span>${l.qty}</span>
-          <button type="button" data-cq="+" data-id="${l.p.id}" aria-label="වැඩි">+</button>
+          <button type="button" data-cq="+" data-id="${l.p.id}" aria-label="+">+</button>
         </div>
       </div>
       <div style="text-align:right">
         <div style="font-weight:700">${money(l.p.price*l.qty)}</div>
-        <button class="link-btn" data-crm="${l.p.id}">ඉවත් කරන්න</button>
+        <button class="link-btn" data-crm="${l.p.id}">${esc(t("cart.remove"))}</button>
       </div>
     </div>`).join("");
-  const total = cartTotal();
+  const total = lines.reduce((s,l)=>s+l.p.price*l.qty,0);
   const fee = total >= CONFIG.freeDeliveryAbove ? 0 : CONFIG.deliveryFee;
   $("#cartFoot").innerHTML = `
-    <div style="display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px">
-      <span>උප එකතුව</span><span>${money(total)}</span></div>
-    <div style="display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:10px">
-      <span>ඩිලිවරි</span><span>${fee? money(fee) : "නොමිලේ"}</span></div>
-    <div class="totals"><span>එකතුව</span><span>${money(total+fee)}</span></div>
-    <button class="btn btn-primary block" id="goCheckout">ඕඩරය සම්පූර්ණ කරන්න</button>`;
+    <div style="display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px"><span>${esc(t("cart.subtotal"))}</span><span>${money(total)}</span></div>
+    <div style="display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:10px"><span>${esc(t("cart.delivery"))}</span><span>${fee?money(fee):esc(t("cart.free"))}</span></div>
+    <div class="totals"><span>${esc(t("cart.total"))}</span><span>${money(total+fee)}</span></div>
+    <button class="btn btn-primary block" id="goCheckout">${esc(t("cart.checkout"))}</button>`;
   $("#goCheckout").onclick = ()=>{ buyNowItem=null; openCheckout(); };
 }
 document.addEventListener("click", e=>{
@@ -778,8 +1003,7 @@ document.addEventListener("click", e=>{
     const line = cart.find(c=>c.id===cq.dataset.id);
     const p = PRODUCTS.find(x=>x.id===cq.dataset.id);
     if(line){
-      if(cq.dataset.cq==="+") line.qty = Math.min(p.stock, line.qty+1);
-      else line.qty -= 1;
+      if(cq.dataset.cq==="+") line.qty = Math.min(p.stock, line.qty+1); else line.qty -= 1;
       if(line.qty<=0) cart = cart.filter(c=>c.id!==line.id);
       updateCount(); renderCart();
     }
@@ -788,83 +1012,67 @@ document.addEventListener("click", e=>{
   if(rm){ cart = cart.filter(c=>c.id!==rm.dataset.crm); updateCount(); renderCart(); }
 });
 
-/* ======================= DIRECT BUY ======================= */
+/* ======================= DIRECT BUY + CHECKOUT ======================= */
 function directBuy(id, qty=1){
   const p = PRODUCTS.find(x=>x.id===id); if(!p || p.stock<=0) return;
   buyNowItem = {id, qty:Math.min(qty, p.stock)};
   openCheckout();
 }
-
-/* ======================= CHECKOUT ======================= */
 function checkoutLines(){
-  if(buyNowItem){
-    const p = PRODUCTS.find(x=>x.id===buyNowItem.id);
-    return p ? [{p, qty:buyNowItem.qty}] : [];
-  }
+  if(buyNowItem){ const p = PRODUCTS.find(x=>x.id===buyNowItem.id); return p?[{p, qty:buyNowItem.qty}]:[]; }
   return cartLines();
 }
 function openCheckout(){
   const lines = checkoutLines();
-  if(!lines.length){ toast("කාට් එක හිස්."); return; }
+  if(!lines.length){ toast(t("cart.emptyToast")); return; }
   const sub = lines.reduce((s,l)=>s+l.p.price*l.qty,0);
   const fee = sub >= CONFIG.freeDeliveryAbove ? 0 : CONFIG.deliveryFee;
+  const waNum = "0" + CONFIG.whatsapp.slice(2);
 
-  $("#coTitle").textContent = buyNowItem ? "ඉක්මන් ඕඩරය" : "ඕඩරය සම්පූර්ණ කරන්න";
+  $("#coTitle").textContent = buyNowItem ? t("co.quick") : t("co.title");
   $("#checkoutBody").innerHTML = `
   <div class="detail">
     <form id="orderForm">
-      <h3 style="margin-top:0">ඩිලිවරි විස්තර</h3>
+      <h3 style="margin-top:0">${esc(t("co.delTitle"))}</h3>
       <div class="two">
-        <div class="field"><label for="o-name">සම්පූර්ණ නම</label><input id="o-name" required></div>
-        <div class="field"><label for="o-phone">දුරකථන අංකය</label><input id="o-phone" type="tel" required placeholder="07X XXX XXXX"></div>
+        <div class="field"><label for="o-name">${esc(t("f.fullName"))}</label><input id="o-name" required></div>
+        <div class="field"><label for="o-phone">${esc(t("f.phone"))}</label><input id="o-phone" type="tel" required placeholder="07X XXX XXXX"></div>
       </div>
-      <div class="field"><label for="o-addr">ලිපිනය</label><textarea id="o-addr" required style="min-height:72px"></textarea></div>
+      <div class="field"><label for="o-addr">${esc(t("f.addr"))}</label><textarea id="o-addr" required style="min-height:72px"></textarea></div>
       <div class="two">
-        <div class="field"><label for="o-city">නගරය</label><input id="o-city" required></div>
-        <div class="field"><label for="o-email">ඊමේල් (අවශ්‍ය නැත)</label><input id="o-email" type="email"></div>
+        <div class="field"><label for="o-city">${esc(t("f.city"))}</label><input id="o-city" required></div>
+        <div class="field"><label for="o-email">${esc(t("f.email"))}</label><input id="o-email" type="email"></div>
       </div>
-
-      <h3>ගෙවීමේ ක්‍රමය</h3>
+      <h3>${esc(t("co.payTitle"))}</h3>
       <div class="pay">
-        <label><input type="radio" name="pay" value="cod" checked>
-          <span><strong>බඩුව ලැබුණාම මුදලින් (COD)</strong><small>බඩුව අතට ලැබෙන විට ඩිලිවරි කරන අයට ගෙවන්න.</small></span></label>
-        <label><input type="radio" name="pay" value="bank">
-          <span><strong>බැංකු ට්‍රාන්ස්ෆර්</strong><small>මුදල් යවා රිසිට් එක WhatsApp කරන්න.</small></span></label>
-        <label><input type="radio" name="pay" value="card">
-          <span><strong>කාඩ් පත (Visa / Mastercard)</strong><small>ආරක්ෂිත ගෙවීම් පිටුවකට යොමු කරනවා.</small></span></label>
+        <label><input type="radio" name="pay" value="cod" checked><span><strong>${esc(t("pay.cod"))}</strong><small>${esc(t("pay.codSub"))}</small></span></label>
+        <label><input type="radio" name="pay" value="bank"><span><strong>${esc(t("pay.bank"))}</strong><small>${esc(t("pay.bankSub"))}</small></span></label>
+        <label><input type="radio" name="pay" value="card"><span><strong>${esc(t("pay.card"))}</strong><small>${esc(t("pay.cardSub"))}</small></span></label>
       </div>
       <div class="pay-extra" id="bankBox">
-        <strong>${esc(CONFIG.bank.bankName)} — ${esc(CONFIG.bank.branch)}</strong><br>
-        නම: ${esc(CONFIG.bank.accountName)}<br>
-        ගිණුම් අංකය: ${esc(CONFIG.bank.accountNumber)}<br>
-        <span class="note">ඕඩරය දාපු පස්සේ රිසිට් එක 0${CONFIG.whatsapp.slice(2)} වෙත WhatsApp කරන්න.</span>
+        <strong>${esc(L(CONFIG.bank.bankName))} — ${esc(L(CONFIG.bank.branch))}</strong><br>
+        ${esc(t("co.accName"))}: ${esc(CONFIG.bank.accountName)}<br>
+        ${esc(t("co.accNo"))}: ${esc(CONFIG.bank.accountNumber)}<br>
+        <span class="note">${esc(t("co.bankHint",{n:waNum}))}</span>
       </div>
-      <div class="pay-extra" id="cardBox">
-        කාඩ් ගෙවීම් ආරක්ෂිත ගේට්වේ එකකින් (උදා: PayHere, Onepay, Stripe) සිදු වෙනවා.
-        <span class="note">මේ ඩෙමෝ එකේ කාඩ් ගේට්වේ එක තාම සම්බන්ධ කරලා නැහැ — පහත සටහන බලන්න.</span>
-      </div>
-
-      <div class="field"><label for="o-note">වෙනත් සටහනක් (අවශ්‍ය නැත)</label><input id="o-note" placeholder="උදා: සවස 5ට පස්සේ ගේන්න"></div>
-      <button class="btn btn-primary block" type="submit">ඕඩරය තහවුරු කරන්න</button>
+      <div class="pay-extra" id="cardBox">${esc(t("co.cardHint"))} <span class="note">${esc(t("co.cardHint2"))}</span></div>
+      <div class="field"><label for="o-note">${esc(t("co.noteLabel"))}</label><input id="o-note" placeholder="${esc(t("co.notePh"))}"></div>
+      <button class="btn btn-primary block" type="submit">${esc(t("co.place"))}</button>
     </form>
-
     <aside>
       <div class="panel">
-        <h3 style="margin-top:0">ඔබේ ඕඩරය</h3>
+        <h3 style="margin-top:0">${esc(t("co.summary"))}</h3>
         ${lines.map(l=>`<div class="citem" style="grid-template-columns:48px 1fr auto">
-            <img src="${esc(imgFor(l.p))}" alt="" style="width:48px;height:48px">
-            <div><h4>${esc(l.p.name)}</h4><div class="note">${l.qty} × ${money(l.p.price)}</div></div>
-            <div style="font-weight:700">${money(l.p.price*l.qty)}</div></div>`).join("")}
-        <div style="display:flex;justify-content:space-between;font-size:.9rem;margin:12px 0 4px">
-          <span>උප එකතුව</span><span>${money(sub)}</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:8px">
-          <span>ඩිලිවරි</span><span>${fee?money(fee):"නොමිලේ"}</span></div>
-        <div class="totals" style="margin:0"><span>එකතුව</span><span>${money(sub+fee)}</span></div>
+          <img src="${esc(imgFor(l.p))}" alt="" style="width:48px;height:48px">
+          <div><h4>${esc(l.p.name)}</h4><div class="note">${l.qty} × ${money(l.p.price)}</div></div>
+          <div style="font-weight:700">${money(l.p.price*l.qty)}</div></div>`).join("")}
+        <div style="display:flex;justify-content:space-between;font-size:.9rem;margin:12px 0 4px"><span>${esc(t("cart.subtotal"))}</span><span>${money(sub)}</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:8px"><span>${esc(t("cart.delivery"))}</span><span>${fee?money(fee):esc(t("cart.free"))}</span></div>
+        <div class="totals" style="margin:0"><span>${esc(t("cart.total"))}</span><span>${money(sub+fee)}</span></div>
       </div>
     </aside>
   </div>`;
-
-  $$("input[name=pay]").forEach(r=>r.addEventListener("change", ()=>{
+  $$("input[name=pay]").forEach(r=> r.addEventListener("change", ()=>{
     $("#bankBox").classList.toggle("show", r.value==="bank" && r.checked);
     $("#cardBox").classList.toggle("show", r.value==="card" && r.checked);
   }));
@@ -878,96 +1086,95 @@ async function submitOrder(e){
   const sub = lines.reduce((s,l)=>s+l.p.price*l.qty,0);
   const fee = sub >= CONFIG.freeDeliveryAbove ? 0 : CONFIG.deliveryFee;
   const payVal = ($("input[name=pay]:checked")||{}).value || "cod";
-  const payTxt = {cod:"බඩුව ලැබුණාම මුදලින්", bank:"බැංකු ට්‍රාන්ස්ෆර්", card:"කාඩ් පත"}[payVal];
   const order = {
-    ref: "HT" + Date.now().toString().slice(-6),
-    at: new Date().toLocaleString("en-GB"),
+    ref:"HT"+Date.now().toString().slice(-6), at:new Date().toLocaleString("en-GB"),
     name:$("#o-name").value, phone:$("#o-phone").value, addr:$("#o-addr").value,
     city:$("#o-city").value, email:$("#o-email").value, note:$("#o-note").value,
-    pay:payTxt, payVal, total:sub+fee, direct: !!buyNowItem,
+    payVal, total:sub+fee, direct:!!buyNowItem, lang,
     items: lines.map(l=>({name:l.p.name, qty:l.qty, price:l.p.price}))
   };
-  // ස්ටොක් අඩු කිරීම
   lines.forEach(l=>{ const p = PRODUCTS.find(x=>x.id===l.p.id); if(p) p.stock = Math.max(0, p.stock - l.qty); });
   orders.unshift(order);
   if(!buyNowItem) cart = [];
   buyNowItem = null;
   updateCount(); renderProducts(); renderCart(); await saveData();
 
+  const payTxt = t("pay."+payVal);
   const waMsg = encodeURIComponent(
-    `අලුත් ඕඩරයක් — ${order.ref}\nනම: ${order.name}\nදුරකථනය: ${order.phone}\nලිපිනය: ${order.addr}, ${order.city}\n` +
+    `New order — ${order.ref}\nName: ${order.name}\nPhone: ${order.phone}\nAddress: ${order.addr}, ${order.city}\n` +
     order.items.map(i=>`• ${i.name} × ${i.qty}`).join("\n") +
-    `\nගෙවීම: ${order.pay}\nඑකතුව: ${money(order.total)}`);
+    `\nPayment: ${payTxt}\nTotal: ${money(order.total)}`);
 
-  $("#coTitle").textContent = "ඕඩරය ලැබුණා";
+  $("#coTitle").textContent = t("co.done");
   $("#checkoutBody").innerHTML = `
     <div class="ok-box">
       <div class="tick">✓</div>
-      <h2 style="margin:0 0 6px">ස්තුතියි, ${esc(order.name)}!</h2>
-      <p style="margin:0 auto 16px;color:var(--ink-soft)">ඔබේ ඕඩර් අංකය <strong>${order.ref}</strong>. අපි විනාඩි 30ක් ඇතුළත ${esc(order.phone)} අංකයට කතා කරලා තහවුරු කරගන්නම්.</p>
+      <h2 style="margin:0 0 6px">${esc(t("co.thanks",{name:order.name}))}</h2>
+      <p style="margin:0 auto 16px;color:var(--ink-soft)">${esc(t("co.ref",{ref:order.ref, phone:order.phone}))}</p>
       <div class="panel" style="text-align:left;max-width:460px;margin:0 auto 18px">
         <table class="spec" style="margin:0">
-          <tr><td>ගෙවීමේ ක්‍රමය</td><td>${esc(order.pay)}</td></tr>
-          <tr><td>එකතුව</td><td><strong>${money(order.total)}</strong></td></tr>
-          ${order.payVal==="bank"?`<tr><td>බැංකු ගිණුම</td><td>${esc(CONFIG.bank.bankName)} · ${esc(CONFIG.bank.accountNumber)}<br><span class="note">${esc(CONFIG.bank.accountName)}</span></td></tr>`:""}
-          ${order.payVal==="card"?`<tr><td>මීළඟ පියවර</td><td>ගෙවීම් ලින්ක් එකක් SMS මගින් එවනවා.</td></tr>`:""}
+          <tr><td>${esc(t("co.payMethod"))}</td><td>${esc(payTxt)}</td></tr>
+          <tr><td>${esc(t("cart.total"))}</td><td><strong>${money(order.total)}</strong></td></tr>
+          ${payVal==="bank"?`<tr><td>${esc(t("co.bankAcc"))}</td><td>${esc(L(CONFIG.bank.bankName))} · ${esc(CONFIG.bank.accountNumber)}<br><span class="note">${esc(CONFIG.bank.accountName)}</span></td></tr>`:""}
+          ${payVal==="card"?`<tr><td>${esc(t("co.next"))}</td><td>${esc(t("co.cardNext"))}</td></tr>`:""}
         </table>
       </div>
-      <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsapp}?text=${waMsg}">WhatsApp එකෙන් තහවුරු කරන්න</a>
-      <button class="btn btn-line" data-close style="margin-left:8px">තව බඩු බලන්න</button>
+      <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsapp}?text=${waMsg}">${esc(t("co.wa"))}</a>
+      <button class="btn btn-line" data-close style="margin-left:8px">${esc(t("co.keep"))}</button>
     </div>`;
 }
 
 /* ======================= SERVICE / CCTV FORMS ======================= */
-function handleRequest(form, type, fields){
+function handleRequest(form, typeKey, fields){
   form.addEventListener("submit", async e=>{
     e.preventDefault();
     const data = {}; fields.forEach(f=> data[f.k] = $(f.sel).value);
-    const req = {ref:"RQ"+Date.now().toString().slice(-6), type, at:new Date().toLocaleString("en-GB"), data};
+    const req = {ref:"RQ"+Date.now().toString().slice(-6), type:t(typeKey), at:new Date().toLocaleString("en-GB"), data};
     requests.unshift(req); await saveData();
-    const msg = encodeURIComponent(`${type} ඉල්ලීමක් — ${req.ref}\n` + fields.map(f=>`${f.label}: ${data[f.k]}`).join("\n"));
-    form.reset();
-    toast("ඉල්ලීම ලැබුණා. අපි ඉක්මනින් කතා කරනවා.");
+    const msg = encodeURIComponent(`${req.type} ${t("req.label")} — ${req.ref}\n` +
+      fields.map(f=>`${f.label}: ${data[f.k]}`).join("\n"));
+    form.reset(); applyLang();
+    toast(t("req.sent"));
     window.open(`https://wa.me/${CONFIG.whatsapp}?text=${msg}`, "_blank", "noopener");
   });
 }
-handleRequest($("#serviceForm"), "පරිගණක සර්විස්", [
-  {k:"name",sel:"#sv-name",label:"නම"},{k:"phone",sel:"#sv-phone",label:"දුරකථනය"},
-  {k:"type",sel:"#sv-type",label:"සර්විස් වර්ගය"},{k:"addr",sel:"#sv-addr",label:"ලිපිනය"},
-  {k:"date",sel:"#sv-date",label:"දිනය"},{k:"time",sel:"#sv-time",label:"වේලාව"},{k:"issue",sel:"#sv-issue",label:"ප්‍රශ්නය"}
+handleRequest($("#serviceForm"), "svc.reqType", [
+  {k:"name",sel:"#sv-name",label:"Name"},{k:"phone",sel:"#sv-phone",label:"Phone"},
+  {k:"type",sel:"#sv-type",label:"Service"},{k:"addr",sel:"#sv-addr",label:"Address"},
+  {k:"date",sel:"#sv-date",label:"Date"},{k:"time",sel:"#sv-time",label:"Time"},{k:"issue",sel:"#sv-issue",label:"Problem"}
 ]);
-handleRequest($("#cctvForm"), "CCTV", [
-  {k:"name",sel:"#cc-name",label:"නම"},{k:"phone",sel:"#cc-phone",label:"දුරකථනය"},
-  {k:"job",sel:"#cc-job",label:"වැඩේ"},{k:"count",sel:"#cc-count",label:"කැමරා ගණන"},
-  {k:"place",sel:"#cc-place",label:"ස්ථානය"},{k:"note",sel:"#cc-note",label:"විස්තර"}
+handleRequest($("#cctvForm"), "nav.cctv", [
+  {k:"name",sel:"#cc-name",label:"Name"},{k:"phone",sel:"#cc-phone",label:"Phone"},
+  {k:"job",sel:"#cc-job",label:"Job"},{k:"count",sel:"#cc-count",label:"Cameras"},
+  {k:"place",sel:"#cc-place",label:"Property"},{k:"note",sel:"#cc-note",label:"Notes"}
 ]);
 
 /* ======================= GOOGLE REVIEWS ======================= */
-function starStr(n){ return "★".repeat(Math.round(n)) + "☆".repeat(5-Math.round(n)); }
-function paintReviews(list, avg, total, source){
+let liveReviews = null, liveAvg = 0, liveTotal = 0, revSourceKey = "rev.sample";
+const starStr = n => "★".repeat(Math.round(n)) + "☆".repeat(5-Math.round(n));
+
+function renderReviews(){
+  const list = liveReviews || SAMPLE_REVIEWS;
+  const avg = liveReviews ? liveAvg : list.reduce((s,r)=>s+r.rating,0)/list.length;
+  const total = liveReviews ? liveTotal : list.length;
   $("#revScore").textContent = avg.toFixed(1);
   $("#revStars").textContent = starStr(avg);
-  $("#revCount").textContent = `Google රිවීව් ${total}ක් මත පදනම්ව`;
+  $("#revCount").textContent = t("rev.count",{n:total});
   $("#revGrid").innerHTML = list.map(r=>`
     <article class="rev">
       <div class="who"><div class="av">${esc(r.author.charAt(0))}</div>
-        <div><strong>${esc(r.author)}</strong><br><time>${esc(r.time)}</time></div></div>
+        <div><strong>${esc(r.author)}</strong><br><time>${esc(L(r.time))}</time></div></div>
       <div class="stars">${starStr(r.rating)}</div>
-      <p>${esc(r.text)}</p>
+      <p>${esc(L(r.text))}</p>
     </article>`).join("");
-  $("#revSource").textContent = source;
+  $("#revSource").textContent = t(revSourceKey);
   $("#writeReview").href = CONFIG.google.placeId
     ? `https://search.google.com/local/writereview?placeid=${CONFIG.google.placeId}`
     : CONFIG.google.writeReviewUrl;
 }
 async function loadGoogleReviews(){
   const {placeId, apiKey} = CONFIG.google;
-  if(!placeId || !apiKey){
-    const avg = SAMPLE_REVIEWS.reduce((s,r)=>s+r.rating,0)/SAMPLE_REVIEWS.length;
-    paintReviews(SAMPLE_REVIEWS, avg, SAMPLE_REVIEWS.length,
-      "මේවා උදාහරණ රිවීව්. CONFIG.google තුළ ඔබේ Place ID එකයි API key එකයි දැම්මාම, ඇත්ත Google රිවීව් මෙතන පෙන්වයි.");
-    return;
-  }
+  if(!placeId || !apiKey){ revSourceKey = "rev.sample"; renderReviews(); return; }
   try{
     const res = await fetch(`https://places.googleapis.com/v1/places/${placeId}?fields=rating,userRatingCount,reviews&key=${apiKey}`);
     const d = await res.json();
@@ -977,13 +1184,11 @@ async function loadGoogleReviews(){
       time: r.relativePublishTimeDescription || "",
       text: r.originalText?.text || r.text?.text || ""
     }));
-    if(!revs.length) throw new Error("no reviews");
-    paintReviews(revs, d.rating || 5, d.userRatingCount || revs.length, "Google Business Profile එකෙන් සජීවීව ලබාගත් රිවීව්.");
-  }catch(err){
-    const avg = SAMPLE_REVIEWS.reduce((s,r)=>s+r.rating,0)/SAMPLE_REVIEWS.length;
-    paintReviews(SAMPLE_REVIEWS, avg, SAMPLE_REVIEWS.length,
-      "Google වෙතින් රිවීව් ගන්න බැරි වුණා. API key එක සහ Place ID එක නැවත පරීක්ෂා කරන්න.");
-  }
+    if(!revs.length) throw new Error("none");
+    liveReviews = revs; liveAvg = d.rating || 5; liveTotal = d.userRatingCount || revs.length;
+    revSourceKey = "rev.live";
+  }catch(err){ revSourceKey = "rev.fail"; }
+  renderReviews();
 }
 
 /* ======================= ADMIN ======================= */
@@ -992,88 +1197,82 @@ function openAdmin(){
   if(!adminUnlocked){
     $("#adminBody").innerHTML = `
       <div style="max-width:340px;margin:20px auto">
-        <div class="field"><label for="adpw">ඇඩ්මින් මුරපදය</label><input id="adpw" type="password"></div>
-        <button class="btn btn-primary block" id="adGo">ඇතුළු වන්න</button>
-        <p class="note" style="margin-top:10px">පෙරනිමි මුරපදය CONFIG.adminPassword තුළ තියෙනවා — ඒක වෙනස් කරන්න.</p>
+        <div class="field"><label for="adpw">${esc(t("ad.pw"))}</label><input id="adpw" type="password"></div>
+        <button class="btn btn-primary block" id="adGo">${esc(t("ad.signin"))}</button>
+        <p class="note" style="margin-top:10px">${esc(t("ad.pwNote"))}</p>
       </div>`;
     $("#adGo").onclick = ()=>{
       if($("#adpw").value === CONFIG.adminPassword){ adminUnlocked = true; renderAdmin(); }
-      else toast("මුරපදය වැරදියි.");
+      else toast(t("ad.pwBad"));
     };
     $("#adpw").addEventListener("keydown", e=>{ if(e.key==="Enter") $("#adGo").click(); });
   } else renderAdmin();
   openModal("adminModal");
 }
 function renderAdmin(){
+  const cats = [...new Set(PRODUCTS.map(p=>L(p.cat)))];
   $("#adminBody").innerHTML = `
     <div class="tabs">
-      <button data-tab="tProd" aria-selected="true">බඩු</button>
-      <button data-tab="tOrd" aria-selected="false">ඕඩර් (${orders.length})</button>
-      <button data-tab="tReq" aria-selected="false">සර්විස් ඉල්ලීම් (${requests.length})</button>
-      <button data-tab="tExp" aria-selected="false">බැකප්</button>
+      <button data-tab="tProd" aria-selected="true">${esc(t("ad.tProd"))}</button>
+      <button data-tab="tOrd" aria-selected="false">${esc(t("ad.tOrd"))} (${orders.length})</button>
+      <button data-tab="tReq" aria-selected="false">${esc(t("ad.tReq"))} (${requests.length})</button>
+      <button data-tab="tExp" aria-selected="false">${esc(t("ad.tExp"))}</button>
     </div>
-
     <div class="tabpane on" id="tProd">
       <div class="split" style="gap:24px">
         <div>
-          <h3 style="margin-top:0">අලුත් බඩුවක් එකතු කරන්න</h3>
+          <h3 style="margin-top:0">${esc(t("ad.addTitle"))}</h3>
           <form id="addForm">
-            <div class="field"><label for="a-name">නම</label><input id="a-name" required></div>
+            <div class="field"><label for="a-name">${esc(t("ad.fName"))}</label><input id="a-name" required></div>
             <div class="two">
-              <div class="field"><label for="a-price">මිල (රු.)</label><input id="a-price" type="number" min="0" required></div>
-              <div class="field"><label for="a-old">පරණ මිල (වට්ටමක් නම්)</label><input id="a-old" type="number" min="0"></div>
+              <div class="field"><label for="a-price">${esc(t("ad.fPrice"))}</label><input id="a-price" type="number" min="0" required></div>
+              <div class="field"><label for="a-old">${esc(t("ad.fOld"))}</label><input id="a-old" type="number" min="0"></div>
             </div>
             <div class="two">
-              <div class="field"><label for="a-cat">වර්ගය</label><input id="a-cat" list="catList" required>
-                <datalist id="catList">${[...new Set(PRODUCTS.map(p=>p.cat))].map(c=>`<option>${esc(c)}</option>`).join("")}</datalist>
-              </div>
-              <div class="field"><label for="a-stock">ස්ටොක් ගණන</label><input id="a-stock" type="number" min="0" value="1" required></div>
+              <div class="field"><label for="a-cat">${esc(t("ad.fCat"))}</label><input id="a-cat" list="catList" required>
+                <datalist id="catList">${cats.map(c=>`<option>${esc(c)}</option>`).join("")}</datalist></div>
+              <div class="field"><label for="a-stock">${esc(t("ad.fStock"))}</label><input id="a-stock" type="number" min="0" value="1" required></div>
             </div>
-            <div class="field"><label for="a-img">පින්තූරයේ ලින්ක් එක (URL)</label><input id="a-img" placeholder="හිස්ව තිබ්බොත් ස්වයංක්‍රීය පින්තූරයක් යොදනවා"></div>
-            <div class="field"><label for="a-desc">කෙටි විස්තරය (කාඩ් එකේ පේන එක)</label><input id="a-desc" required></div>
-            <div class="field"><label for="a-long">සම්පූර්ණ විස්තරය (ක්ලික් කළාම පේන එක)</label><textarea id="a-long"></textarea></div>
-            <div class="field"><label for="a-specs">ස්පෙක් (පේළියකට එකක් — නම: අගය)</label>
-              <textarea id="a-specs" placeholder="ප්‍රොසෙසර්: Intel i5&#10;වගකීම: වසර 1"></textarea></div>
-            <button class="btn btn-primary block" type="submit">බඩුව එකතු කරන්න</button>
+            <div class="field"><label for="a-img">${esc(t("ad.fImg"))}</label><input id="a-img" placeholder="${esc(t("ad.fImgPh"))}"></div>
+            <div class="field"><label for="a-desc">${esc(t("ad.fDesc"))}</label><input id="a-desc" required></div>
+            <div class="field"><label for="a-long">${esc(t("ad.fLong"))}</label><textarea id="a-long"></textarea></div>
+            <div class="field"><label for="a-specs">${esc(t("ad.fSpecs"))}</label><textarea id="a-specs" placeholder="${esc(t("ad.fSpecsPh"))}"></textarea></div>
+            <p class="note">${esc(t("ad.langNote"))}</p>
+            <button class="btn btn-primary block" type="submit">${esc(t("ad.add"))}</button>
           </form>
         </div>
         <div>
-          <h3 style="margin-top:0">දැනට තියෙන බඩු</h3>
+          <h3 style="margin-top:0">${esc(t("ad.current"))}</h3>
           <table class="admin-tbl">
-            <tr><th>නම</th><th>මිල</th><th>ස්ටොක්</th><th></th></tr>
+            <tr><th>${esc(t("ad.fName"))}</th><th>${esc(t("ad.price"))}</th><th>${esc(t("ad.stock"))}</th><th></th></tr>
             ${PRODUCTS.map(p=>`<tr>
-              <td>${esc(p.name)}<br><span class="note">${esc(p.cat)}</span></td>
+              <td>${esc(p.name)}<br><span class="note">${esc(L(p.cat))}</span></td>
               <td>${money(p.price)}</td>
               <td><input type="number" min="0" value="${p.stock}" data-stk="${p.id}" style="width:72px;padding:5px;border:1px solid var(--line);border-radius:7px"></td>
-              <td><button class="link-btn" data-del="${p.id}">මකන්න</button></td>
-            </tr>`).join("")}
+              <td><button class="link-btn" data-del="${p.id}">${esc(t("ad.del"))}</button></td></tr>`).join("")}
           </table>
         </div>
       </div>
     </div>
-
     <div class="tabpane" id="tOrd">
       ${orders.length? orders.map(o=>`<div class="panel" style="margin-bottom:12px">
-        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
-          <strong>${o.ref}</strong><span class="note">${o.at}${o.direct?" · ඩිරෙක්ට් බයි":""}</span></div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><strong>${o.ref}</strong>
+          <span class="note">${o.at}${o.direct?" · "+esc(t("ad.buyNow")):""}</span></div>
         <div style="font-size:.9rem;margin-top:6px">${esc(o.name)} · ${esc(o.phone)}<br>${esc(o.addr)}, ${esc(o.city)}</div>
         <div style="font-size:.9rem;margin-top:6px">${o.items.map(i=>esc(i.name)+" × "+i.qty).join("<br>")}</div>
-        <div style="margin-top:8px"><strong>${money(o.total)}</strong> · ${esc(o.pay)}</div>
-      </div>`).join("") : `<div class="empty">තාම ඕඩර් නැහැ.</div>`}
+        <div style="margin-top:8px"><strong>${money(o.total)}</strong> · ${esc(t("pay."+o.payVal))}</div>
+      </div>`).join("") : `<div class="empty">${esc(t("ad.noOrders"))}</div>`}
     </div>
-
     <div class="tabpane" id="tReq">
       ${requests.length? requests.map(r=>`<div class="panel" style="margin-bottom:12px">
-        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
-          <strong>${r.ref} · ${esc(r.type)}</strong><span class="note">${r.at}</span></div>
-        <div style="font-size:.9rem;margin-top:6px">${Object.entries(r.data).map(([k,v])=>esc(v)).filter(Boolean).join(" · ")}</div>
-      </div>`).join("") : `<div class="empty">තාම ඉල්ලීම් නැහැ.</div>`}
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><strong>${r.ref} · ${esc(r.type)}</strong><span class="note">${r.at}</span></div>
+        <div style="font-size:.9rem;margin-top:6px">${Object.values(r.data).map(v=>esc(v)).filter(Boolean).join(" · ")}</div>
+      </div>`).join("") : `<div class="empty">${esc(t("ad.noReqs"))}</div>`}
     </div>
-
     <div class="tabpane" id="tExp">
-      <p class="note">බඩු ලැයිස්තුව JSON විදිහට කොපි කරගන්න. හොස්ටින් එකට දාන කලින් මේක ෆයිල් එකේ <code>PRODUCTS</code> කොටසට දාන්න.</p>
+      <p class="note">${esc(t("ad.expNote"))}</p>
       <textarea id="expBox" style="width:100%;min-height:240px;font-family:monospace;font-size:.8rem;border:1px solid var(--line);border-radius:10px;padding:12px">${esc(JSON.stringify(PRODUCTS,null,2))}</textarea>
-      <button class="btn btn-line" id="copyJson" style="margin-top:10px">කොපි කරන්න</button>
+      <button class="btn btn-line" id="copyJson" style="margin-top:10px">${esc(t("ad.copy"))}</button>
     </div>`;
 
   $$("#adminBody .tabs button").forEach(b=> b.onclick = ()=>{
@@ -1086,37 +1285,37 @@ function renderAdmin(){
     ($("#a-specs").value||"").split("\n").forEach(l=>{
       const i = l.indexOf(":"); if(i>0) specs[l.slice(0,i).trim()] = l.slice(i+1).trim();
     });
+    const cat = $("#a-cat").value;
     PRODUCTS.unshift({
-      id:"p"+Date.now(), name:$("#a-name").value, cat:$("#a-cat").value,
-      price:+$("#a-price").value, old:+($("#a-old").value||0),
-      desc:$("#a-desc").value, long:$("#a-long").value, img:$("#a-img").value.trim(),
-      stock:+$("#a-stock").value, specs
+      id:"p"+Date.now(), name:$("#a-name").value,
+      cat:{en:cat, si:cat}, price:+$("#a-price").value, old:+($("#a-old").value||0),
+      desc:{en:$("#a-desc").value, si:$("#a-desc").value},
+      long:{en:$("#a-long").value, si:$("#a-long").value},
+      img:$("#a-img").value.trim(), stock:+$("#a-stock").value,
+      specs:{en:specs, si:specs}
     });
-    await saveData(); renderChips(); renderProducts(); renderAdmin();
-    toast("බඩුව එකතු කළා.");
+    await saveData(); renderChips(); renderProducts(); renderAdmin(); toast(t("ad.added"));
   };
   $$("#adminBody [data-del]").forEach(b=> b.onclick = async ()=>{
     PRODUCTS = PRODUCTS.filter(p=>p.id!==b.dataset.del);
     cart = cart.filter(c=>c.id!==b.dataset.del);
-    await saveData(); updateCount(); renderChips(); renderProducts(); renderAdmin(); toast("බඩුව මැකුවා.");
+    await saveData(); updateCount(); renderChips(); renderProducts(); renderAdmin(); toast(t("ad.deleted"));
   });
   $$("#adminBody [data-stk]").forEach(inp=> inp.onchange = async ()=>{
     const p = PRODUCTS.find(x=>x.id===inp.dataset.stk);
-    if(p){ p.stock = Math.max(0,+inp.value); await saveData(); renderProducts(); toast("ස්ටොක් යාවත්කාලීන කළා."); }
+    if(p){ p.stock = Math.max(0,+inp.value); await saveData(); renderProducts(); toast(t("ad.stockUpd")); }
   });
   const cj = $("#copyJson");
-  if(cj) cj.onclick = ()=>{ $("#expBox").select(); document.execCommand("copy"); toast("කොපි කළා."); };
+  if(cj) cj.onclick = ()=>{ $("#expBox").select(); document.execCommand("copy"); toast(t("ad.copied")); };
 }
 
 /* ======================= EVENTS ======================= */
 document.addEventListener("click", e=>{
   const act = e.target.closest("[data-act]");
-  if(act){
-    e.stopPropagation();
+  if(act){ e.stopPropagation();
     if(act.dataset.act==="add") addToCart(act.dataset.id,1);
     if(act.dataset.act==="buy") directBuy(act.dataset.id,1);
-    return;
-  }
+    return; }
   const card = e.target.closest(".pcard");
   if(card){ openProduct(card.dataset.id); return; }
   const chip = e.target.closest(".chip");
@@ -1135,8 +1334,17 @@ $("#year").textContent = new Date().getFullYear();
 
 /* ======================= INIT ======================= */
 (async function init(){
+  const saved = await recall("hypnotec:lang");
   await loadData();
-  renderChips(); renderProducts(); renderCards(); renderCart(); updateCount();
+  if(saved === "si" || saved === "en"){
+    await setLang(saved, false);                 // returning visitor — no gate
+  }else{
+    lang = CONFIG.defaultLang; applyLang();      // render behind the gate
+    $("#langGate").classList.add("show");
+    document.body.style.overflow = "hidden";
+    setTimeout(()=> $("#langGate button").focus(), 80);
+  }
+  updateCount();
   loadGoogleReviews();
 })();
 </script>
