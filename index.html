@@ -221,6 +221,41 @@ footer a:hover{color:#fff}
   .two{grid-template-columns:1fr}
   #langGate .rings{width:520px;height:520px}
 }
+
+/* ---------- WhatsApp floating button ---------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: #25D366; /* WhatsApp green */
+  color: #fff;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2.1rem;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+  z-index: 80; /* Modals and overlay are 90+, so this stays below them */
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  color: #fff;
+}
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    font-size: 1.8rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -286,6 +321,25 @@ footer a:hover{color:#fff}
     </div>
   </div>
 </section>
+
+<!-- WhatsApp Floating Button -->
+<a id="whatsappFloat" class="whatsapp-float" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- ============ WELCOME AD POPUP ============ -->
+<div id="adOverlay"></div>
+
+<div class="modal modal-center" id="adModal" style="z-index: 150;">
+  <div class="modal-head">
+    <h3>📢 Special Offer</h3>
+    <button class="x" id="closeAdBtn" aria-label="Close">×</button>
+  </div>
+  <div class="modal-body" style="padding:0; line-height:0; background:#000; text-align:center;">
+    <!-- OYAGE BANNER IMAGE LINK EKA MEGA PASSE "src" EKATA DANNA -->
+    <img id="adImage" src="https://via.placeholder.com/800x400?text=Your+Ad+Banner+Here" alt="Special Offer" style="width:100%; height:auto; display:block; max-height:75vh; object-fit:contain;">
+  </div>
+</div>
 
 <!-- ================= SHOP ================= -->
 <section class="section" id="shop">
@@ -445,6 +499,7 @@ footer a:hover{color:#fff}
 </div>
 
 <div id="toast" role="status" aria-live="polite"></div>
+
 
 <script>
 /* =======================================================================
@@ -1176,6 +1231,12 @@ async function loadGoogleReviews(){
     revSourceKey = "rev.live";
   }catch(err){ revSourceKey = "rev.fail"; }
   renderReviews();
+}
+
+// Initialize WhatsApp Floating Button Link
+const whatsappFloatBtn = document.getElementById('whatsappFloat');
+if (whatsappFloatBtn && CONFIG.whatsapp) {
+  whatsappFloatBtn.href = `https://wa.me/${CONFIG.whatsapp}`;
 }
 
 /* ======================= EVENTS ======================= */
